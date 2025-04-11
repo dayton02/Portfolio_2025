@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayton's Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <!-- Load in order -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/code-display.js"></script>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-initials">D</span>
+                <span class="logo-separator">|</span>
+                <span class="logo-initials">N</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="welcome-text">Welcome to my mini space</div>
+            <div class="title-container">
+                <h1>Hello!<br>I'm <span class="highlight-name">Dayton Ng</span></h1>
+            </div>
+            <div class="subtitle">Game Developer & Outdoor Enthusiast</div>
+            <div class="description">
+                <div class="typing-text">
+                    Game lover <span class="emoji">🕹️</span> | Game Developer <span class="emoji">🎮</span> | Software
+                    Engineer<span class="emoji">💻</span><br>
+                    <span class="hobby">and I love archery <span class="emoji">🎯</span>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#about" class="cta-button learn-more">Learn More</a>
+                    <a href="#contact" class="cta-button get-resume">Get Resume</a>
+                </div>
+            </div>
+        </div>
+        <div class="code-display">
+            <div class="code-header">
+                <span class="file-name">DaytonNg.cpp</span>
+                <div class="window-controls">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+            </div>
+            <div class="code-content">
+                <pre class="line-numbers"><code class="language-cpp" id="typing-code"></code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="images/profile.jpg" alt="Dayton Ng">
+            </div>
+            <div class="about-content">
+                <h2>Developer, Designer,<br>Gamer, Adventurer</h2>
+                <p>Hello! I'm Dayton Ng, a passionate game developer specializing in creating immersive gaming
+                    experiences and innovative software solutions.</p>
+                <p>As an aspiring game developer, I'm dedicated to craft engaging gameplay mechanics and
+                    user-friendly interfaces. My focus is on making games that are not just entertaining but also
+                    widely loved by others.</p>
+                <p>Outside of programming, I am also a gamer and an adventurer myself. I have been playing games
+                    since I was a kid due to my sister's influence and that is where my game development thoughts
+                    developed.
+                    I am fortunate to still love playing games and start making it myself. I am also a huge enthusiast
+                    for
+                    outdoor adventures and travel. My favourites are archery and scuba diving.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects-featured">
+        <div class="projects-container">
+            <h2>Latest Projects</h2>
+            <div class="featured-project">
+                <div class="project-image">
+                    <img src="images/featured-project.jpg" alt="Featured Project">
+                </div>
+                <div class="project-info">
+                    <span class="project-label">Featured Project</span>
+                    <h3>Climb</h3>
+                    <div class="project-description">
+                        <p>"Climb" is an 2D vertical platformer that challenges players to ascend through
+                            treacherous rock formations with timing and strategic movement. Using simple
+                            three-button control system, players must carefully navigate between platforms while
+                            avoiding obstacles and little rest time. The game features a unique mechanic where players
+                            can
+                            traverse both left and right, adding a tactical layer to the climbing experience.
+                            Usage of the punch mechanism to clear obstacles and collection of
+                            power-ups are helpful for achieving higher scores and mastering the climb.</p>
+                    </div>
+                    <div class="project-tech">
+                        <span>C++</span>
+                        <span>Procreate</span>
+                        <span>Git Repo</span>
+                        <span>AEngine</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="project-climb.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container">
+            <h2>Get In Touch</h2>
+            <p class="contact-intro">Reach out to me!</p>
+
+            <form action="https://formsubmit.co/daytonng02@gmail.com" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <div class="social-links">
+                <a href="https://github.com/dayton02" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/dayton-ng" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/daton_n/profilecard/" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

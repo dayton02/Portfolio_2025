@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climb - Project Details</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-initials">D</span>
+                <span class="logo-separator">|</span>
+                <span class="logo-initials">N</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Details -->
+    <section id="project-details">
+        <div class="project-details-container">
+            <a href="projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            <h1>Monkey Business</h1>
+            <div class="project-showcase">
+                <img src="images/mkb.jpg" alt="Monkey Business">
+                <div class="project-info-detailed">
+                    <div class="project-tech">
+                        <span>C</span>
+                        <span>Aesprite</span>
+                        <span>Git Repo</span>
+                        <span>CProcessing</span>
+                    </div>
+                    <p>Old school 1 keyboard 2 players co-op game where players will THROW anything and everything
+                        towards the money and beat the monkey king.
+                    </p>
+                    <div class="project-credits">
+                        <h3>Team & Credits</h3>
+                        <ul>
+                            <li><strong>Team Name:</strong> GitGud (Year 1 Tri 1)</li>
+                            <li><strong>Team Size:</strong> 5 members</li>
+                            <li><strong>Duration:</strong> 2.5 months</li>
+                            <li><strong>Team Members:</strong>
+                                <ul>
+                                    <li>Shee Yang - Tech Lead | Programmer</li>
+                                    <li>Dayton Ng - Art Director | Programmer</li>
+                                    <li>Jarrel - Sound Designer | Programmer</li>
+                                    <li>Zhi Kai - Project Manager | Programmer</li>
+                                    <li>Chun Wee - Level Designer | Programmer</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="project-role">
+                        <h3>My Role</h3>
+                        <ul>
+                            <li>Art Designer and Programmer</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-responsibilities">
+                        <h3>Key Responsibilities</h3>
+                        <ul>
+                            <li>Implemented items drop and items pick up</li>
+                            <li>Designed and implemented the menus</li>
+                            <li>Sprites design</li>
+                            <li>Collaborated with tech lead for seamless asset integration</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Play Demo</a>
+                        <a href="#" class="project-link" onclick="playVideo(event)"><i class="fab fa-youtube"></i> Video
+                            Showcase</a>
+                        <a href="#" class="project-link"><i class="fas fa-images"></i> Screenshots</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Monkey Business - Gameplay Demo</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <video id="gameplayVideo" controls>
+                    <source src="videos/monkey-business-demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('videoModal');
+        const video = document.getElementById('gameplayVideo');
+        const closeBtn = document.querySelector('.close-modal');
+
+        function playVideo(event) {
+            event.preventDefault();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            video.play();
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            video.pause();
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
