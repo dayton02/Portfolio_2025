@@ -1,0 +1,222 @@
+/* Resume Hero Section */
+#resume-hero {
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(19, 17, 28, 0.9), rgba(19, 17, 28, 0.95));
+    padding: 4rem 2rem;
+}
+
+.resume-title {
+    text-align: center;
+    color: #B197FC;
+}
+
+.resume-title h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+.resume-title .subtitle {
+    font-size: 1.5rem;
+    color: #845EF7;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+/* Timeline Section */
+#experience-timeline {
+    padding: 4rem 2rem;
+    background: rgba(19, 17, 28, 0.8);
+}
+
+.timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline-node {
+    opacity: 0.5;
+    transition: all 0.5s ease;
+    margin: 2rem 0;
+    transform: translateX(-20px);
+}
+
+.timeline-node.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.experience-card {
+    background: rgba(26, 22, 37, 0.8);
+    border: 1px solid rgba(177, 151, 252, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.experience-card:hover {
+    border-color: #845EF7;
+    box-shadow: 0 4px 20px rgba(177, 151, 252, 0.2);
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.exp-year {
+    color: #845EF7;
+    font-weight: 500;
+}
+
+.exp-type {
+    background: rgba(132, 94, 247, 0.2);
+    color: #B197FC;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.experience-card h3 {
+    color: #B197FC;
+    margin-bottom: 1rem;
+}
+
+.experience-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-card li {
+    color: #B197FC;
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.experience-card li::before {
+    content: "•";
+    color: #845EF7;
+    position: absolute;
+    left: 0;
+}
+
+/* Timeline Controls */
+.timeline-controls {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.timeline-nav {
+    background: rgba(132, 94, 247, 0.2);
+    border: 1px solid #845EF7;
+    color: #B197FC;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.timeline-nav:hover {
+    background: rgba(132, 94, 247, 0.4);
+    transform: scale(1.1);
+}
+
+.timeline-nav:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Achievements Section */
+#achievements {
+    padding: 4rem 2rem;
+    background: rgba(19, 17, 28, 0.8);
+}
+
+#achievements h2 {
+    color: #B197FC;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.achievement-card {
+    background: rgba(26, 22, 37, 0.8);
+    border: 1px solid rgba(177, 151, 252, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    border-color: #845EF7;
+    box-shadow: 0 4px 20px rgba(177, 151, 252, 0.2);
+}
+
+.achievement-icon {
+    color: #845EF7;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.achievement-card h3 {
+    color: #B197FC;
+    margin-bottom: 1rem;
+}
+
+.achievement-card p {
+    color: #B197FC;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resume-title h1 {
+        font-size: 3rem;
+    }
+
+    .experience-card {
+        padding: 1.5rem;
+    }
+
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-title h1 {
+        font-size: 2.5rem;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .achievement-card {
+        padding: 1.5rem;
+    }
+}

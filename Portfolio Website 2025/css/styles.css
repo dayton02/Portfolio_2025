@@ -1696,15 +1696,6 @@ textarea:focus {
         width: 100%;
     }
 
-    .code-content {
-        max-height: 300px;
-    }
-
-    .dot {
-        width: 10px;
-        height: 10px;
-    }
-
     .project-details-container {
         padding: 1rem;
     }
@@ -1724,13 +1715,13 @@ textarea:focus {
         gap: 1rem;
         width: 100%;
         padding: 0;
-        align-items: stretch; 
+        align-items: stretch;
     }
 
     .project-link {
         width: 100%;
         padding: 0.8rem 1rem;
-        display: flex;     
+        display: flex;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
@@ -1758,6 +1749,39 @@ textarea:focus {
 
     .skill-category h2 {
         font-size: 1.5rem;
+    }
+
+    /* Code display */
+    .code-content {
+        max-height: 300px;
+        padding: 0.8rem;
+        font-size: 0.7rem;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    .code-content pre,
+    .code-content code {
+        font-size: 0.7rem;
+        line-height: 1.4;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    .line-numbers-rows {
+        font-size: 0.7rem;
+        padding-right: 0.8rem;
+        opacity: 0.7;
+        height: 100%;
+    }
+
+    .line-numbers-rows>span {
+        padding-right: 0.5rem;
+    }
+
+    .line-numbers .line-numbers-rows {
+        padding-right: 0.8rem;
+        margin-right: 0.8rem;
     }
 }
 
