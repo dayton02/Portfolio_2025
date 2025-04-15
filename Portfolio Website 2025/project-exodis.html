@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exodis Ascend - Project Details</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-initials">D</span>
+                <span class="logo-separator">|</span>
+                <span class="logo-initials">N</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Details -->
+    <section id="project-details">
+        <div class="project-details-container">
+            <a href="projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            <h1>Exodis Ascend</h1>
+            <div class="project-showcase">
+                <img src="images/exodis.png" alt="Exodis">
+                <div class="project-info-detailed">
+                    <div class="project-tech">
+                        <span>C#</span>
+                        <span>Unity</span>
+                        <span>Dialogue System</span>
+                        <span>Turn based System</span>
+                    </div>
+                    <p>"Exodis Ascend" is a captivating Fantasy RPG that follows your epic journey to conquer the
+                        mysterious Grand Tower Exodis. As the chosen hero, you'll face a series of challenging events
+                        that will test your wit and courage.</p>
+
+                    <p>Every step of your ascent brings unique encounters with intriguing characters, each with their
+                        own stories and motivations. Form powerful alliances by recruiting companions into your party,
+                        each bringing distinct combat abilities that open up diverse tactical possibilities. Your
+                        choices in building your team will directly influence your combat strategy and story
+                        progression.</p>
+
+                    <p>With its branching narrative paths and diverse character roster, each playthrough offers a fresh
+                        experience. Different character interactions, unexpected events, and various combat combinations
+                        ensure that every ascent of the tower feels like a new adventure. Will you focus on building a
+                        balanced team, or specialize in a particular combat style? The choice is yours to make.</p>
+                    <div class="project-credits">
+                        <h3>Team & Credits</h3>
+                        <ul>
+                            <li><strong>Team Name:</strong> NIL (Internship project)</li>
+                            <li><strong>Team Size:</strong> 3 members</li>
+                            <li><strong>Duration:</strong> 3 months</li>
+                            <li><strong>Team Members:</strong>
+                                <ul>
+                                    <li>Dayton (Intern) - Tech Lead | Programmer</li>
+                                    <li>Aqilah (Intern) - Art Director</li>
+                                    <li>Tariq (Full-time) - Project Manager</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="project-role">
+                        <h3>My Role</h3>
+                        <ul>
+                            <li>Programmer</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-responsibilities">
+                        <h3>Key Responsibilities</h3>
+                        <ul>
+                            <li>Randomised event </li>
+                            <li>Turn-based RPG combat system</li>
+                            <li>Short visual novel story</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Play Demo</a>
+                        <a href="#" class="project-link" onclick="showScreenshots(event)"><i class="fas fa-images"></i>
+                            Screenshots</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Lead Astray - Gameplay Demo</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <video id="gameplayVideo" controls>
+                    <source src="videos/leadAstray-demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screenshots Modal -->
+    <div class="screenshots-modal" id="screenshotsModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Exodis Ascend - Screenshots</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="gallery-container">
+                    <div class="gallery-slides">
+                        <img src="images/exodisAscend/exodis_1.png" alt="Exodis Ascend Screenshot 1">
+                        <img src="images/exodisAscend/exodis_2.png" alt="Exodis Ascend Screenshot 2">
+                        <img src="images/exodisAscend/exodis_3.png" alt="Exodis Ascend Screenshot 3">
+                    </div>
+                </div>
+                <button class="gallery-nav prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="gallery-nav next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('videoModal');
+        const video = document.getElementById('gameplayVideo');
+        const closeBtn = document.querySelector('.close-modal');
+
+        function playVideo(event) {
+            event.preventDefault();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            video.play();
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            video.pause();
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Screenshots Gallery
+        const screenshotsModal = document.getElementById('screenshotsModal');
+        const gallerySlides = document.querySelector('.gallery-slides');
+        const prevBtn = document.querySelector('.gallery-nav.prev');
+        const nextBtn = document.querySelector('.gallery-nav.next');
+        let currentIndex = 0;
+
+        function showScreenshots(event) {
+            event.preventDefault();
+            screenshotsModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            currentIndex = 0;
+            updateGallery();
+        }
+
+        function updateGallery() {
+            const offset = -currentIndex * 100;
+            gallerySlides.style.transform = `translateX(${offset}%)`;
+
+            // Update navigation button states
+            prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+            nextBtn.style.opacity = currentIndex === gallerySlides.children.length - 1 ? '0.5' : '1';
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateGallery();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < gallerySlides.children.length - 1) {
+                currentIndex++;
+                updateGallery();
+            }
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (screenshotsModal.classList.contains('active')) {
+                if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                    currentIndex--;
+                    updateGallery();
+                } else if (e.key === 'ArrowRight' && currentIndex < gallerySlides.children.length - 1) {
+                    currentIndex++;
+                    updateGallery();
+                } else if (e.key === 'Escape') {
+                    screenshotsModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+
+        // Close screenshots modal
+        screenshotsModal.querySelector('.close-modal').addEventListener('click', () => {
+            screenshotsModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === screenshotsModal) {
+                screenshotsModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -36,32 +36,334 @@
     <section id="projects-grid">
         <div class="projects-grid-container">
             <h1>My Projects</h1>
-            <div class="projects-grid">
-                <!-- Project Card 1 -->
-                <a href="project-climb.html" class="project-card">
-                    <div class="project-card-content">
-                        <img src="images/featured-project.jpg" alt="Climb">
-                        <h3>Climb</h3>
-                        <p>2D Vertical Platformer Game</p>
-                        <div class="project-card-tech">
-                            <span>C++</span>
-                            <span>AEngine</span>
+
+            <!-- Games Category -->
+            <div class="project-category">
+                <h2>Games</h2>
+                <div class="projects-grid">
+                    <!-- Project Climb -->
+                    <a href="project-climb.html" class="project-card">
+                        <div class="project-card-content">
+                            <img src="images/featured-project.jpg" alt="Climb">
+                            <h3>Climb</h3>
+                            <p>2D Vertical Platformer Game</p>
+                            <div class="project-card-tech">
+                                <span>C++</span>
+                                <span>AEngine</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <!-- Project Card 2 -->
-                <a href="project-mkb.html" class="project-card">
-                    <div class="project-card-content">
-                        <img src="images/mkb.jpg" alt="Monkey Business">
-                        <h3>Monkey Business</h3>
-                        <p>2D side scrolling Human vs Monkey game</p>
-                        <div class="project-card-tech">
-                            <span>C</span>
-                            <span>CProcessing</span>
+                    </a>
+                    <!-- Project Mkb -->
+                    <a href="project-mkb.html" class="project-card">
+                        <div class="project-card-content">
+                            <img src="images/mkb.jpg" alt="Monkey Business">
+                            <h3>Monkey Business</h3>
+                            <p>2D side scrolling Human vs Monkey game</p>
+                            <div class="project-card-tech">
+                                <span>C</span>
+                                <span>CProcessing</span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                    <!-- Project Exodis -->
+                    <a href="project-exodis.html" class="project-card">
+                        <div class="project-card-content">
+                            <img src="images/exodis.png" alt="Exodis">
+                            <h3>Exodis Ascend</h3>
+                            <p>2D event turn based game</p>
+                            <div class="project-card-tech">
+                                <span>Unity</span>
+                                <span>C#</span>
+                                <span>Visual Novel</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Project leadAstray -->
+                    <a href="project-leadAstray.html" class="project-card">
+                        <div class="project-card-content">
+                            <img src="images/leadAstray.png" alt="leadAstray">
+                            <h3>Lead Astray</h3>
+                            <p>To spread awareness about the issues that community cats face and at the same time for
+                                the player to experience fun in top-down.</p>
+                            <div class="project-card-tech">
+                                <span>Unity</span>
+                                <span>C#</span>
+                                <span>Dialogues</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
+
+            <!-- 3D Models Category -->
+            <div class="project-category">
+                <h2>3D Models</h2>
+                <div class="projects-grid">
+                    <!-- Project 3D room -->
+                    <a href="project-Room.html" class="project-card">
+                        <div class="project-card-content">
+                            <img src="images/Room.png" alt="Room">
+                            <h3>Room</h3>
+                            <p>A room filled with different technology with animation.</p>
+                            <div class="project-card-tech">
+                                <span>Blender</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Project 3D Chair -->
+                    <a href="project-Chair.html" class="project-card">
+                        <div class="project-card-content">
+                            <img src="images/Chair.png" alt="Chair">
+                            <h3>Gaming Chair</h3>
+                            <p>This is a 3D model of the gaming chair referenced from a gaming chair that I am currently
+                                using right now.</p>
+                            <div class="project-card-tech">
+                                <span>Blender</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Project 3D GameBoy -->
+                    <a href="project-Gameboy.html" class="project-card">
+                        <div class="project-card-content">
+                            <img src="images/gameboy.png" alt="Gameboy">
+                            <h3>GameBoy Console</h3>
+                            <p>3D model of a gameboy console.
+                            </p>
+                            <div class="project-card-tech">
+                                <span>Blender</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Project 3D Keyboard -->
+                    <a href="project-Keyboard.html" class="project-card">
+                        <div class="project-card-content">
+                            <img src="images/keyboard.png" alt="keyboard">
+                            <h3>Keyboard</h3>
+                            <p>3D model of a keyboard that I was using.
+                            </p>
+                            <div class="project-card-tech">
+                                <span>Blender</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2D Art Category -->
+            <div class="project-category">
+                <h2>2D Art</h2>
+                <div class="projects-grid">
+                    <div class="project-card" onclick="openArtGallery('digital')">
+                        <div class="project-card-content">
+                            <img src="images/DigitalArt/BG_sprite.png" alt="Digital Art">
+                            <h3>Digital Art</h3>
+                            <p>Collection of digital illustrations and concept art</p>
+                            <div class="project-card-tech">
+                                <span>Krita</span>
+                                <span>Gimp</span>
+                                <span>Photoshop</span>
+                                <span>Procreate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" onclick="openArtGallery('pixelart')">
+                        <div class="project-card-content">
+                            <img src="images/PixelArt/invitationcard_pixelart.png" alt="pixelart">
+                            <h3>PixelArt</h3>
+                            <p>Collection of pixelarts</p>
+                            <div class="project-card-tech">
+                                <span>Aseprite</span>
+                                <span>Procreate</span>
+                                <span>Krita</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- Art Gallery Modal -->
+    <div class="art-gallery-modal" id="artGalleryModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="galleryTitle">Art Gallery</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="gallery-container">
+                    <div class="main-image-container">
+                        <img id="mainImage" src="" alt="Main Image">
+                        <div class="image-caption" id="mainImageCaption"></div>
+                    </div>
+                    <div class="thumbnail-strip">
+                        <div class="thumbnail-container" id="thumbnailContainer">
+                            <!-- Thumbnails will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <script>
+        const artGalleryModal = document.getElementById('artGalleryModal');
+        const artGalleryGrid = document.getElementById('artGalleryGrid');
+        const galleryTitle = document.getElementById('galleryTitle');
+
+        // Art collections
+        const artCollections = {
+            digital: {
+                title: 'Digital Art Collection',
+                images: [
+                    { src: 'images/DigitalArt/BG_sprite.png', title: '"Climb" game menu' },
+                    { src: 'images/DigitalArt/Bird_sprite.png', title: 'Bird Sprite' },
+                    { src: 'images/DigitalArt/Coin_sprite.png', title: 'Coin Sprite' },
+                    { src: 'images/DigitalArt/Freeze_sprite.png', title: 'Freeze Sprite' },
+                    { src: 'images/DigitalArt/Invin_powerup.png', title: 'Invincible Power Up' },
+                    { src: 'images/DigitalArt/Slow_sprite.png', title: 'Slow time power up' },
+                    { src: 'images/DigitalArt/Stone_sprite.png', title: 'Stone Sprite' },
+                    { src: 'images/DigitalArt/Art_Showcase.png', title: 'Poly work' },
+                    { src: 'images/DigitalArt/Art_Showcase2.jpeg', title: 'Poly work' },
+                    { src: 'images/DigitalArt/Art_Showcase3.png', title: 'Poly work' },
+                    { src: 'images/DigitalArt/Art_Showcase4.png', title: 'Poly work' },
+                    { src: 'images/DigitalArt/Art_Showcase5.png', title: 'Poly work' },
+                    { src: 'images/DigitalArt/Art_Showcase6.png', title: 'Poly work' },
+                    { src: 'images/DigitalArt/Art_Showcase7.png', title: 'Poly work' },
+                    { src: 'images/DigitalArt/Art_Showcase8.png', title: 'Poly work' },
+                ]
+            },
+            pixelart: {
+                title: 'Pixel Art Collection',
+                images: [
+                    { src: 'images/PixelArt/InFull.png', title: 'Game Menu' },
+                    { src: 'images/PixelArt/acorn_pixelart.png', title: 'Acorn Pixelart' },
+                    { src: 'images/PixelArt/boo_pixelart.png', title: 'Boo Pixelart' },
+                    { src: 'images/PixelArt/candle_pixelart.png', title: 'Candle Pixelart' },
+                    { src: 'images/PixelArt/cottoncandy_pixelart.png', title: 'Cotton Candy Pixelart' },
+                    { src: 'images/PixelArt/eyeball_pixelart.png', title: 'Eyeball Pixelart' },
+                    { src: 'images/PixelArt/ghost_pixelart.png', title: 'Ghost Pixelart' },
+                    { src: 'images/PixelArt/invitationcard_pixelart.png', title: 'Invitation Card Pixelart' },
+                    { src: 'images/PixelArt/lantern_pixelart.png', title: 'Lantern Pixelart' },
+                    { src: 'images/PixelArt/mask_pixelart.png', title: 'Mask Pixelart' },
+                    { src: 'images/PixelArt/monster_pixelart.png', title: 'Monster Pixelart' },
+                    { src: 'images/PixelArt/owl_pixelart.png', title: 'Owl Pixelart' },
+                    { src: 'images/PixelArt/potion_pixelart.png', title: 'Potion Pixelart' },
+                    { src: 'images/PixelArt/sunflower_pixelart.png', title: 'Sunflower Pixelart' },
+                    { src: 'images/PixelArt/tree_pixelart.png', title: 'Tree Pixelart' },
+                    { src: 'images/PixelArt/Items.png', title: 'Items Pixelart' },
+                    { src: 'images/PixelArt/MiniBoss.png', title: 'Miniboss Pixelart' },
+                    { src: 'images/PixelArt/Parachute.png', title: 'Supply drop Pixelart' },
+                    { src: 'images/PixelArt/Player.png', title: 'Player Pixelart' },
+                    { src: 'images/PixelArt/Player1_Dead.png', title: 'Player death Pixelart' },
+                    { src: 'images/PixelArt/Player2_Dead.png', title: 'Player 2 death Pixelart' },
+                    { src: 'images/PixelArt/SpriteSheet.png', title: 'SpriteSheet Pixelart' },
+                ]
+            }
+        };
+
+        function openArtGallery(type) {
+            const collection = artCollections[type];
+            galleryTitle.textContent = collection.title;
+            let currentImageIndex = 0;
+
+            // Clear existing thumbnails
+            const thumbnailContainer = document.getElementById('thumbnailContainer');
+            thumbnailContainer.innerHTML = '';
+
+            // Add navigation arrows to main-image-container
+            const mainImageContainer = document.querySelector('.main-image-container');
+            mainImageContainer.innerHTML = `
+                <button class="nav-arrow prev-arrow">&lt;</button>
+                <img id="mainImage" src="" alt="Main Image">
+                <button class="nav-arrow next-arrow">&gt;</button>
+                <div class="image-caption" id="mainImageCaption"></div>
+            `;
+
+            const mainImage = document.getElementById('mainImage');
+            const mainImageCaption = document.getElementById('mainImageCaption');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+
+            function updateImage(index) {
+                currentImageIndex = index;
+                const img = collection.images[index];
+                mainImage.src = img.src;
+                mainImage.alt = img.title;
+                mainImageCaption.textContent = img.title;
+
+                document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+                    thumb.classList.toggle('active', i === index);
+                    if (i === index) {
+                        thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+            }
+
+            // Add thumbnails
+            collection.images.forEach((img, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = 'thumbnail';
+                thumbnail.innerHTML = `<img src="${img.src}" alt="${img.title}">`;
+
+                if (index === 0) thumbnail.classList.add('active');
+
+                thumbnail.addEventListener('click', () => updateImage(index));
+                thumbnailContainer.appendChild(thumbnail);
+            });
+
+            // Set initial image
+            updateImage(0);
+
+            // Navigation arrow handlers
+            prevArrow.addEventListener('click', () => {
+                const newIndex = (currentImageIndex - 1 + collection.images.length) % collection.images.length;
+                updateImage(newIndex);
+            });
+
+            nextArrow.addEventListener('click', () => {
+                const newIndex = (currentImageIndex + 1) % collection.images.length;
+                updateImage(newIndex);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (!artGalleryModal.classList.contains('active')) return;
+
+                switch (e.key) {
+                    case 'ArrowLeft':
+                        prevArrow.click();
+                        break;
+                    case 'ArrowRight':
+                        nextArrow.click();
+                        break;
+                    case 'Escape':
+                        artGalleryModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                        break;
+                }
+            });
+
+            artGalleryModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        document.querySelectorAll('.close-modal').forEach(btn => {
+            btn.addEventListener('click', () => {
+                artGalleryModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close on outside click
+        window.addEventListener('click', (e) => {
+            if (e.target === artGalleryModal) {
+                artGalleryModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
 </body>
 
 </html>

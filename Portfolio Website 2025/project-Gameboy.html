@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameboy Console - Project Details</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-initials">D</span>
+                <span class="logo-separator">|</span>
+                <span class="logo-initials">N</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Details -->
+    <section id="project-details">
+        <div class="project-details-container">
+            <a href="projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            <h1>Gameboy Console</h1>
+            <div class="project-showcase">
+                <img src="images/gameboy.png" alt="gameboy">
+                <div class="project-info-detailed">
+                    <div class="project-tech">
+                        <span>Blender</span>
+                    </div>
+                    <p>Made during my internship as I started learning more about 3D modelling and Unreal Engine 4 with the guidance from my colleague in the company.</p>
+                    <div class="project-credits">
+                        <h3>Team & Credits</h3>
+                        <ul>
+                            <li><strong>Team Name:</strong> Solo</li>
+                            <li><strong>Team Size:</strong> 1 member</li>
+                            <li><strong>Duration:</strong> - </li>
+                            <li><strong>Team Members:</strong>
+                                <ul>
+                                    <li>Dayton Ng - 3D modeller</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="project-role">
+                        <h3>My Role</h3>
+                        <ul>
+                            <li>Model and texture the room</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-responsibilities">
+                        <h3>Key Responsibilities</h3>
+                        <ul>
+                            <li>Create a 3D model space in blender</li>
+                            <li>Texturing</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="#" class="project-link" onclick="showScreenshots(event)"><i class="fas fa-images"></i>
+                            Screenshots</a>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Room - Gameplay Demo</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <video id="gameplayVideo" controls>
+                    <source src="videos/room-demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screenshots Modal -->
+    <div class="screenshots-modal" id="screenshotsModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Gameboy console - Screenshots</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="gallery-container">
+                    <div class="gallery-slides">
+                        <img src="images/gameboy/gameboy_1.png" alt="Gameboy Screenshot 1">
+                        <img src="images/gameboy/gameboy_2.png" alt="Gameboy Screenshot 2">
+                        <img src="images/gameboy/gameboy_3.png" alt="Gameboy Screenshot 3">
+                    </div>
+                </div>
+                <button class="gallery-nav prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="gallery-nav next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('videoModal');
+        const video = document.getElementById('gameplayVideo');
+        const closeBtn = document.querySelector('.close-modal');
+
+        function playVideo(event) {
+            event.preventDefault();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            video.play();
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            video.pause();
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Screenshots Gallery
+        const screenshotsModal = document.getElementById('screenshotsModal');
+        const gallerySlides = document.querySelector('.gallery-slides');
+        const prevBtn = document.querySelector('.gallery-nav.prev');
+        const nextBtn = document.querySelector('.gallery-nav.next');
+        let currentIndex = 0;
+
+        function showScreenshots(event) {
+            event.preventDefault();
+            screenshotsModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            currentIndex = 0;
+            updateGallery();
+        }
+
+        function updateGallery() {
+            const offset = -currentIndex * 100;
+            gallerySlides.style.transform = `translateX(${offset}%)`;
+
+            // Update navigation button states
+            prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+            nextBtn.style.opacity = currentIndex === gallerySlides.children.length - 1 ? '0.5' : '1';
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateGallery();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < gallerySlides.children.length - 1) {
+                currentIndex++;
+                updateGallery();
+            }
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (screenshotsModal.classList.contains('active')) {
+                if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                    currentIndex--;
+                    updateGallery();
+                } else if (e.key === 'ArrowRight' && currentIndex < gallerySlides.children.length - 1) {
+                    currentIndex++;
+                    updateGallery();
+                } else if (e.key === 'Escape') {
+                    screenshotsModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+
+        // Close screenshots modal
+        screenshotsModal.querySelector('.close-modal').addEventListener('click', () => {
+            screenshotsModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === screenshotsModal) {
+                screenshotsModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+
+</html>
