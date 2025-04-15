@@ -1416,14 +1416,15 @@ textarea:focus {
     }
 
     .code-display {
-        flex: 1;
-        max-width: 600px;
-        background-color: #1A1625;
-        border: 1px solid #2E2640;
-        border-radius: 8px;
-        overflow: hidden;
-        margin-left: 2rem;
-        height: fit-content;
+        margin: 3rem auto 0;
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .code-content {
+        max-height: 400px;
+        /* Adjusted for better mobile viewing */
     }
 
     .cta-buttons {
@@ -1519,6 +1520,23 @@ textarea:focus {
 
 /* Mobile Devices */
 @media (max-width: 768px) {
+    /* Code Display */
+    .code-content {
+        padding: 1rem;
+        font-size: 0.8rem;
+        max-height: 350px;
+    }
+
+    .code-content pre,
+    .code-content code {
+        font-size: 0.75rem;
+    }
+
+    .file-name {
+        font-size: 0.8rem;
+    }
+
+    /* Typography */
     .title-container h1 {
         font-size: 3rem;
     }
@@ -1534,13 +1552,33 @@ textarea:focus {
     /* Navigation Section */
     .nav-container {
         gap: 1rem;
+        padding: 0 1rem;
     }
 
     .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: rgba(26, 22, 37, 0.95);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         gap: 1.5rem;
+        transition: 0.3s ease-in-out;
     }
 
-    /* Projects grid page */
+    .nav-links.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    /* Projects */
     .projects-grid {
         grid-template-columns: 1fr;
     }
@@ -1554,6 +1592,15 @@ textarea:focus {
         margin-bottom: 3rem;
     }
 
+    .project-showcase {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .project-showcase img {
+        max-width: 100%;
+    }
+
     /* Skills page */
     .skills-grid {
         grid-template-columns: 1fr;
@@ -1563,7 +1610,6 @@ textarea:focus {
     .skill-items-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        /* 2 items per row on mobile */
         gap: 1rem;
     }
 
@@ -1586,7 +1632,7 @@ textarea:focus {
         padding: 1.5rem;
     }
 
-    /* Gallary */
+    /* Gallery */
     .gallery-nav {
         width: 36px;
         height: 36px;
@@ -1601,7 +1647,12 @@ textarea:focus {
         right: 10px;
     }
 
-    /* Art Gallery Modal */
+    /* Modals */
+    .modal-container {
+        width: 95%;
+        max-height: 95vh;
+    }
+
     .gallery-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 1rem;
@@ -1612,70 +1663,17 @@ textarea:focus {
     }
 }
 
-/* Tablet and Mobile Navigation */
-@media (max-width: 768px) {
-    .nav-container {
-        padding: 0 1rem;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 60px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 60px);
-        background-color: rgba(26, 22, 37, 0.95);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: 0.3s ease-in-out;
-    }
-
-    .nav-links.active {
-        left: 0;
-    }
-
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-
-    /* Project Details Responsive */
-    .project-showcase {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .project-showcase img {
-        max-width: 100%;
-    }
-
-    /* Screenshots Modal Responsive */
-    .modal-container {
-        width: 95%;
-        max-height: 95vh;
-    }
-
-    .gallery-container {
-        height: auto;
-    }
-
-    .main-image-container {
-        min-height: 300px;
-    }
-
-    .thumbnail-strip {
-        padding: 5px 0;
-    }
-
-    .thumbnail img {
-        width: 80px;
-        height: 60px;
-    }
-}
-
 /* Small Mobile Devices */
 @media (max-width: 480px) {
+    .code-content {
+        max-height: 300px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
     .project-details-container {
         padding: 1rem;
     }
