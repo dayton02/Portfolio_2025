@@ -302,7 +302,6 @@ nav:hover {
 .code-content {
     padding: 1.2rem;
     font-family: 'Fira Code', monospace;
-    color: #DCDCDC !important;
     max-height: 450px;
     overflow-y: auto;
     position: relative;
@@ -326,8 +325,13 @@ nav:hover {
     font-size: 0.85rem;
     line-height: 1.4;
     background: transparent !important;
-    color: #DCDCDC !important;
+    color: #ABB2BF !important;
     caret-color: transparent;
+}
+
+.code-content .token {
+    background: transparent !important;
+    color: #D4D4D4 !important;
 }
 
 .code-content .token.keyword {
@@ -361,13 +365,6 @@ nav:hover {
 
 .code-content .token.variable {
     color: #9CDCFE !important;
-}
-
-/* Base text color */
-.code-content pre,
-.code-content code {
-    color: #D4D4D4 !important;
-    background: transparent !important;
 }
 
 /* Line numbers color */
