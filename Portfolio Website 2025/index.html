@@ -21,6 +21,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/code-display.js"></script>
+    <script src="js/hero-animation.js"></script>
 
 <body>
     <!-- Navigation Bar -->
@@ -46,37 +47,59 @@
 
     <!-- Hero Section -->
     <section id="hero">
-        <div class="hero-content">
-            <div class="welcome-text">Welcome to my mini space</div>
-            <div class="title-container">
-                <h1>Hello!<br>I'm <span class="highlight-name">Dayton Ng</span></h1>
-            </div>
-            <div class="subtitle">Game Developer & Outdoor Enthusiast</div>
-            <div class="description">
-                <div class="typing-text">
-                    Game lover <span class="emoji">🕹️</span> | Game Developer <span class="emoji">🎮</span> | Software
-                    Engineer<span class="emoji">💻</span><br>
-                    <span class="hobby">and I love archery <span class="emoji">🎯</span>
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="glitch-container">
+                    <h1 class="glitch" data-text="Hello!">Hello!</h1>
+                    <div class="intro-text">
+                        <p class="welcome">Welcome to my mini space</p>
+                        <h2>I'm <span class="name-highlight">Dayton Ng</span></h2>
+                        <div class="role-container">
+                            <span class="role current">Game Developer</span>
+                            <span class="role">Software Engineer</span>
+                            <span class="role">Outdoor Enthusiast</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="cta-buttons">
-                    <a href="#about" class="cta-button learn-more">Learn More</a>
-                    <a href="resume.html" class="cta-button get-resume">
-                        <i class="fas fa-briefcase"></i> View Experience
+                <div class="hero-tags">
+                    <span class="tag"><i class="fas fa-gamepad"></i> Game Lover</span>
+                    <span class="tag"><i class="fas fa-code"></i> Developer</span>
+                    <span class="tag"><i class="fas fa-bullseye"></i> Archer</span>
+                    <span class="tag"><i class="fas fa-person-swimming"></i> Diver</span>
+                </div>
+                <div class="cta-container">
+                    <a href="#about" class="cta-button primary">
+                        <span class="button-text">About me</span>
+                        <span class="button-icon"></span>
+                    </a>
+                    <a href="resume.html" class="cta-button secondary">
+                        <span class="button-text">View Journey</span>
+                        <span class="button-icon"><i class="fas fa-briefcase"></i></span>
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="code-display">
-            <div class="code-header">
-                <span class="file-name">DaytonNg.cpp</span>
-                <div class="window-controls">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
+            <div class="hero-right">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="terminal-title">dayton.exe</div>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="line">
+                            <span class="prompt">></span>
+                            <span class="command">loading_profile.init()</span>
+                        </div>
+                        <div class="line">
+                            <span class="prompt">></span>
+                            <span class="command">status: ready_to_create()</span>
+                        </div>
+                        <pre class="code-display language-cpp"></pre>
+                    </div>
                 </div>
-            </div>
-            <div class="code-content">
-                <pre class="line-numbers"><code class="language-cpp" id="typing-code"></code></pre>
             </div>
         </div>
     </section>
