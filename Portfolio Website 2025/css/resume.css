@@ -106,38 +106,6 @@
     left: 0;
 }
 
-/* Timeline Controls */
-.timeline-controls {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.timeline-nav {
-    background: rgba(132, 94, 247, 0.2);
-    border: 1px solid #845EF7;
-    color: #B197FC;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.timeline-nav:hover {
-    background: rgba(132, 94, 247, 0.4);
-    transform: scale(1.1);
-}
-
-.timeline-nav:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
 /* Achievements Section */
 #achievements {
     padding: 4rem 2rem;
