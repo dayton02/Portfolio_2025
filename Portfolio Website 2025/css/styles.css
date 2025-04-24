@@ -501,6 +501,19 @@ nav:hover {
     background-color: rgba(177, 151, 252, 0.1);
 }
 
+.project-link.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgba(132, 94, 247, 0.1);
+    border-color: rgba(132, 94, 247, 0.3);
+    pointer-events: none;
+}
+
+.project-link.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
 .project-category {
     margin-bottom: 4rem;
 }
