@@ -25,6 +25,7 @@ body {
 
 .loader-content {
     text-align: center;
+    position: relative;
 }
 
 .terminal-loader {
@@ -33,6 +34,7 @@ body {
     width: 300px;
     overflow: hidden;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
 .terminal-header {
@@ -42,31 +44,9 @@ body {
     align-items: center;
 }
 
-.terminal-buttons {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.terminal-buttons span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-}
-
-.terminal-buttons span:nth-child(1) {
-    background: #ff5f56;
-}
-
-.terminal-buttons span:nth-child(2) {
-    background: #ffbd2e;
-}
-
-.terminal-buttons span:nth-child(3) {
-    background: #27c93f;
-}
-
 .terminal-body {
     padding: 1.5rem;
+    position: relative;
 }
 
 .loading-text {
@@ -74,31 +54,46 @@ body {
     font-family: 'Fira Code', monospace;
     margin-bottom: 1rem;
     position: relative;
+    display: inline-block;
+}
+
+.loading-text::before {
+    content: '> ';
+    color: #845EF7;
 }
 
 .loading-text::after {
-    content: '';
-    position: absolute;
-    animation: loadingDots 2s infinite;
+    content: '_';
+    animation: cursor 1s infinite;
     margin-left: 2px;
 }
 
-.dots {
-    animation: dots 1.5s infinite;
-}
-
 .progress-bar {
-    background: rgba(132, 94, 247, 0.2);
     height: 4px;
+    background: rgba(132, 94, 247, 0.2);
     border-radius: 2px;
     overflow: hidden;
+    position: relative;
 }
 
 .progress {
+    position: absolute;
     height: 100%;
-    width: 0;
+    width: 100%;
     background: linear-gradient(90deg, #845EF7, #B197FC);
-    animation: progress 2.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+    transform: translateX(-100%);
+    animation: load 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.loading-status {
+    position: absolute;
+    bottom: -2rem;
+    left: 0;
+    right: 0;
+    color: #9775fa;
+    font-size: 0.8rem;
+    font-family: 'Fira Code', monospace;
+    opacity: 0.8;
 }
 
 /* Navigation Bar */
@@ -1958,43 +1953,16 @@ textarea:focus {
     }
 }
 
-@keyframes loadingDots {
-    0%, 10% { content: ''; }
-    15%, 25% { content: '.'; }
-    30%, 40% { content: '..'; }
-    45%, 55% { content: '...'; }
-    60%, 70% { content: '..'; }
-    75%, 85% { content: '.'; }
-    90%, 100% { content: ''; }
-}
-
-@keyframes dots {
-
-    0%,
-    20% {
-        content: '.';
-    }
-
-    40% {
-        content: '..';
-    }
-
-    60%,
-    100% {
-        content: '...';
-    }
-}
-
-@keyframes progress {
+@keyframes load {
     0% {
-        width: 0;
+        transform: translateX(-100%);
     }
 
     50% {
-        width: 70%;
+        transform: translateX(0);
     }
 
     100% {
-        width: 100%;
+        transform: translateX(100%);
     }
 }
