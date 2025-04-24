@@ -34,5 +34,5 @@ window.addEventListener('load', function () {
         setTimeout(() => {
             loadingScreen.style.display = 'none';
         }, 500);
-    }, 2000); // Timer to show
+    }, 1500); // Timer to show
 });
