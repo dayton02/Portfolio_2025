@@ -1,11 +1,22 @@
+/* CSS Custom Properties for better browser support */
+:root {
+    --primary-color: #B197FC;
+    --secondary-color: #845EF7;
+    --background-dark: #13111C;
+    --background-medium: #1A1625;
+    --background-light: #2E2640;
+    --text-light: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+}
+
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     padding-top: 60px;
-    background-color: #13111C;
-    color: #ffffff;
+    background-color: var(--background-dark, #13111C);
+    color: var(--text-light, #ffffff);
 }
 
 /* Loading Screen */
@@ -98,15 +109,21 @@ body {
 
 /* Navigation Bar */
 nav {
-    background-color: rgba(26, 22, 37, 0.8);
+    background-color: rgba(26, 22, 37, 0.95);
     padding: 0.5rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
     box-shadow: 0 2px 15px rgba(177, 151, 252, 0.15);
     transition: all 0.3s ease;
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    nav {
+        background-color: rgba(26, 22, 37, 0.8);
+        backdrop-filter: blur(10px);
+    }
 }
 
 nav:hover {

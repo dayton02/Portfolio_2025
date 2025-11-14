@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .pass { background-color: #d4edda; color: #155724; }
+        .fail { background-color: #f8d7da; color: #721c24; }
+        .warning { background-color: #fff3cd; color: #856404; }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Website Compatibility Test</h1>
+    <div id="test-results"></div>
+
+    <script>
+        const results = [];
+        
+        // Test 1: Basic DOM functionality
+        try {
+            const testDiv = document.createElement('div');
+            document.body.appendChild(testDiv);
+            document.body.removeChild(testDiv);
+            results.push({ test: 'DOM Manipulation', status: 'pass', message: 'Basic DOM operations work' });
+        } catch (e) {
+            results.push({ test: 'DOM Manipulation', status: 'fail', message: e.message });
+        }
+
+        // Test 2: CSS Custom Properties support
+        if (window.CSS && CSS.supports && CSS.supports('color', 'var(--test)')) {
+            results.push({ test: 'CSS Custom Properties', status: 'pass', message: 'CSS variables supported' });
+        } else {
+            results.push({ test: 'CSS Custom Properties', status: 'warning', message: 'CSS variables not supported, using fallbacks' });
+        }
+
+        // Test 3: Smooth scrolling support
+        if ('scrollBehavior' in document.documentElement.style) {
+            results.push({ test: 'Smooth Scrolling', status: 'pass', message: 'Native smooth scrolling supported' });
+        } else {
+            results.push({ test: 'Smooth Scrolling', status: 'warning', message: 'Using fallback for smooth scrolling' });
+        }
+
+        // Test 4: Backdrop filter support
+        if (CSS.supports('backdrop-filter', 'blur(1px)')) {
+            results.push({ test: 'Backdrop Filter', status: 'pass', message: 'Backdrop filter effects supported' });
+        } else {
+            results.push({ test: 'Backdrop Filter', status: 'warning', message: 'Using fallback for backdrop effects' });
+        }
+
+        // Test 5: Local Storage
+        try {
+            localStorage.setItem('test', 'test');
+            localStorage.removeItem('test');
+            results.push({ test: 'Local Storage', status: 'pass', message: 'Local storage available' });
+        } catch (e) {
+            results.push({ test: 'Local Storage', status: 'fail', message: 'Local storage not available' });
+        }
+
+        // Display results
+        const resultsDiv = document.getElementById('test-results');
+        results.forEach(result => {
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-result ${result.status}`;
+            resultDiv.innerHTML = `<strong>${result.test}:</strong> ${result.message}`;
+            resultsDiv.appendChild(resultDiv);
+        });
+
+        // Add summary
+        const summaryDiv = document.createElement('div');
+        summaryDiv.style.marginTop = '20px';
+        const passCount = results.filter(r => r.status === 'pass').length;
+        const warningCount = results.filter(r => r.status === 'warning').length;
+        const failCount = results.filter(r => r.status === 'fail').length;
+        
+        summaryDiv.innerHTML = `
+            <h3>Test Summary:</h3>
+            <p><span style="color: green;">✓ Pass: ${passCount}</span> | 
+               <span style="color: orange;">⚠ Warning: ${warningCount}</span> | 
+               <span style="color: red;">✗ Fail: ${failCount}</span></p>
+        `;
+        resultsDiv.appendChild(summaryDiv);
+    </script>
+</body>
+</html>

@@ -1,11 +1,33 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+// Polyfill for smooth scrolling
+if (!('scrollBehavior' in document.documentElement.style)) {
+    // Fallback for browsers that don't support smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'instant'
+                });
+            }
         });
     });
-});
+} else {
+    // Modern browsers with smooth scrolling support
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
@@ -29,10 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', function () {
     const loadingScreen = document.getElementById('loading-screen');
-    setTimeout(() => {
-        loadingScreen.style.opacity = '0';
+    if (loadingScreen) {
         setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 500);
-    }, 1500); // Timer to show
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }, 1500); // Timer to show
+    }
 });
