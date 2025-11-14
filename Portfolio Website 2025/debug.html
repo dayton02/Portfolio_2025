@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug - Portfolio Content Check</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #00ff00; }
+        .debug-section { margin: 10px 0; padding: 10px; border: 1px solid #333; }
+        .error { color: #ff4444; }
+        .success { color: #44ff44; }
+        .warning { color: #ffaa00; }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Content Debug</h1>
+    <div id="debug-results"></div>
+
+    <script>
+        const results = [];
+        
+        // Check if main content exists
+        function checkContent() {
+            const heroContainer = document.querySelector('.hero-container');
+            const heroLeft = document.querySelector('.hero-left');
+            const heroRight = document.querySelector('.hero-right');
+            const loadingScreen = document.getElementById('loading-screen');
+            
+            results.push('<div class="debug-section">');
+            results.push('<h2>Element Existence Check:</h2>');
+            
+            if (heroContainer) {
+                results.push('<div class="success">✓ Hero container exists</div>');
+                results.push(`<div>Container display: ${window.getComputedStyle(heroContainer).display}</div>`);
+                results.push(`<div>Container visibility: ${window.getComputedStyle(heroContainer).visibility}</div>`);
+                results.push(`<div>Container opacity: ${window.getComputedStyle(heroContainer).opacity}</div>`);
+            } else {
+                results.push('<div class="error">✗ Hero container NOT found</div>');
+            }
+            
+            if (heroLeft) {
+                results.push('<div class="success">✓ Hero left section exists</div>');
+            } else {
+                results.push('<div class="error">✗ Hero left section NOT found</div>');
+            }
+            
+            if (heroRight) {
+                results.push('<div class="success">✓ Hero right section exists</div>');
+            } else {
+                results.push('<div class="error">✗ Hero right section NOT found</div>');
+            }
+            
+            if (loadingScreen) {
+                results.push('<div class="success">✓ Loading screen exists</div>');
+                results.push(`<div>Loading screen display: ${window.getComputedStyle(loadingScreen).display}</div>`);
+                results.push(`<div>Loading screen opacity: ${window.getComputedStyle(loadingScreen).opacity}</div>`);
+            } else {
+                results.push('<div class="warning">⚠ Loading screen NOT found</div>');
+            }
+            
+            results.push('</div>');
+        }
+        
+        // Check for JavaScript errors
+        function checkJSErrors() {
+            results.push('<div class="debug-section">');
+            results.push('<h2>JavaScript Environment:</h2>');
+            
+            // Check if jQuery is loaded (if needed)
+            if (typeof jQuery !== 'undefined') {
+                results.push('<div class="success">✓ jQuery is loaded</div>');
+            } else {
+                results.push('<div class="warning">⚠ jQuery is not loaded</div>');
+            }
+            
+            // Check if Prism is loaded
+            if (typeof Prism !== 'undefined') {
+                results.push('<div class="success">✓ Prism.js is loaded</div>');
+            } else {
+                results.push('<div class="warning">⚠ Prism.js is not loaded</div>');
+            }
+            
+            results.push('</div>');
+        }
+        
+        // Check CSS issues
+        function checkCSS() {
+            results.push('<div class="debug-section">');
+            results.push('<h2>CSS Issues:</h2>');
+            
+            const body = document.body;
+            const bodyStyles = window.getComputedStyle(body);
+            
+            results.push(`<div>Body overflow: ${bodyStyles.overflow}</div>`);
+            results.push(`<div>Body display: ${bodyStyles.display}</div>`);
+            results.push(`<div>Body visibility: ${bodyStyles.visibility}</div>`);
+            
+            // Check for any hidden sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section, index) => {
+                const styles = window.getComputedStyle(section);
+                if (styles.display === 'none' || styles.visibility === 'hidden' || styles.opacity === '0') {
+                    results.push(`<div class="error">✗ Section ${index} is hidden: display=${styles.display}, visibility=${styles.visibility}, opacity=${styles.opacity}</div>`);
+                }
+            });
+            
+            results.push('</div>');
+        }
+        
+        // Run all checks
+        checkContent();
+        checkJSErrors();
+        checkCSS();
+        
+        // Display results
+        document.getElementById('debug-results').innerHTML = results.join('');
+        
+        // Additional real-time check
+        console.log('=== PORTFOLIO DEBUG INFO ===');
+        console.log('Hero container:', document.querySelector('.hero-container'));
+        console.log('Loading screen:', document.getElementById('loading-screen'));
+        console.log('Body classes:', document.body.classList.toString());
+        console.log('Viewport size:', window.innerWidth, 'x', window.innerHeight);
+    </script>
+</body>
+</html>

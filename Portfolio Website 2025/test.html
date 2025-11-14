@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .pass { color: green; }
+        .fail { color: red; }
+        .warning { color: orange; }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Website Test Results</h1>
+    <div id="test-results"></div>
+
+    <script>
+        const results = [];
+        
+        // Test 1: Check if critical elements exist
+        function testElements() {
+            const tests = [
+                { selector: '.hero-container', name: 'Hero Container' },
+                { selector: '.role', name: 'Role Elements' },
+                { selector: '.code-display', name: 'Code Display' },
+                { selector: '.float-item', name: 'Floating Elements' },
+                { selector: '.mobile-menu-toggle', name: 'Mobile Menu Toggle' },
+                { selector: '.nav-links', name: 'Navigation Links' }
+            ];
+            
+            tests.forEach(test => {
+                const elements = document.querySelectorAll(test.selector);
+                if (elements.length > 0) {
+                    results.push(`<div class="test-section pass">✓ ${test.name}: Found ${elements.length} element(s)</div>`);
+                } else {
+                    results.push(`<div class="test-section fail">✗ ${test.name}: No elements found</div>`);
+                }
+            });
+        }
+        
+        // Test 2: Check CSS variables
+        function testCSSVariables() {
+            const computedStyle = getComputedStyle(document.documentElement);
+            const requiredVars = ['--primary-purple', '--secondary-purple', '--text-primary'];
+            
+            requiredVars.forEach(varName => {
+                const value = computedStyle.getPropertyValue(varName);
+                if (value) {
+                    results.push(`<div class="test-section pass">✓ CSS Variable ${varName}: ${value.trim()}</div>`);
+                } else {
+                    results.push(`<div class="test-section fail">✗ CSS Variable ${varName}: Not found</div>`);
+                }
+            });
+        }
+        
+        // Test 3: Check responsive breakpoints
+        function testResponsive() {
+            const viewport = window.innerWidth;
+            let breakpoint = 'Desktop';
+            if (viewport <= 480) breakpoint = 'Mobile';
+            else if (viewport <= 1024) breakpoint = 'Tablet';
+            
+            results.push(`<div class="test-section">ℹ Viewport: ${viewport}px (${breakpoint})</div>`);
+        }
+        
+        // Run tests
+        testElements();
+        testCSSVariables();
+        testResponsive();
+        
+        // Display results
+        document.getElementById('test-results').innerHTML = results.join('');
+    </script>
+</body>
+</html>

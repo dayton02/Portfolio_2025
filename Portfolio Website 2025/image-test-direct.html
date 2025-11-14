@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Loading Diagnostic - Direct Test</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #845ef7;
+            margin-bottom: 2rem;
+        }
+        .test-section {
+            background: rgba(19, 17, 28, 0.8);
+            border: 1px solid rgba(132, 94, 247, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .image-test {
+            display: inline-block;
+            margin: 1rem;
+            text-align: center;
+        }
+        .image-test img {
+            max-width: 200px;
+            max-height: 150px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .image-test img.loaded {
+            border-color: #4CAF50;
+        }
+        .image-test img.failed {
+            border-color: #f44336;
+            filter: grayscale(100%);
+        }
+        .status {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .status.success {
+            color: #4CAF50;
+        }
+        .status.error {
+            color: #f44336;
+        }
+        .summary {
+            background: rgba(132, 94, 247, 0.1);
+            border: 1px solid rgba(132, 94, 247, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .console {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 1rem;
+        }
+        .console-entry {
+            margin-bottom: 0.5rem;
+        }
+        .console-entry.success {
+            color: #4CAF50;
+        }
+        .console-entry.error {
+            color: #f44336;
+        }
+        .console-entry.info {
+            color: #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Image Loading Diagnostic</h1>
+        <p>This tool tests all images referenced in your portfolio to identify loading issues.</p>
+        
+        <div class="test-section">
+            <h2>Main Page Images</h2>
+            <div id="main-images"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Project Page Images</h2>
+            <div id="project-images"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Favicon & Icons</h2>
+            <div id="icon-images"></div>
+        </div>
+        
+        <div class="summary" id="summary">
+            <h3>📊 Summary</h3>
+            <div id="summary-content">Testing images...</div>
+        </div>
+        
+        <div class="console" id="console">
+            <div class="console-entry info">🔍 Starting image loading tests...</div>
+        </div>
+    </div>
+
+    <script>
+        // Image test data
+        const imageTests = {
+            main: [
+                { src: 'images/profile.jpg', alt: 'Profile Photo', type: 'Profile' },
+                { src: 'images/featured-project.jpg', alt: 'Featured Project', type: 'Project' }
+            ],
+            projects: [
+                { src: 'images/featured-project.jpg', alt: 'Climb Game', type: 'Game' },
+                { src: 'images/mkb.jpg', alt: 'Monkey Business', type: 'Game' },
+                { src: 'images/exodis.png', alt: 'Exodis', type: 'Game' },
+                { src: 'images/leadAstray.png', alt: 'leadAstray', type: 'Game' },
+                { src: 'images/Room.png', alt: 'Room 3D Model', type: '3D Model' },
+                { src: 'images/Chair.png', alt: 'Chair 3D Model', type: '3D Model' },
+                { src: 'images/gameboy.png', alt: 'Gameboy 3D Model', type: '3D Model' },
+                { src: 'images/keyboard.png', alt: 'Keyboard 3D Model', type: '3D Model' },
+                { src: 'images/DigitalArt/BG_sprite.png', alt: 'Digital Art', type: 'Art' },
+                { src: 'images/PixelArt/invitationcard_pixelart.png', alt: 'Pixel Art', type: 'Art' }
+            ],
+            icons: [
+                { src: 'images/apple-touch-icon.png', alt: 'Apple Touch Icon', type: 'Icon' },
+                { src: 'images/favicon-32x32.png', alt: 'Favicon 32x32', type: 'Icon' },
+                { src: 'images/favicon-16x16.png', alt: 'Favicon 16x16', type: 'Icon' },
+                { src: 'images/android-chrome-192x192.png', alt: 'Android Icon', type: 'Icon' },
+                { src: 'images/android-chrome-512x512.png', alt: 'Android Icon Large', type: 'Icon' }
+            ]
+        };
+
+        let totalImages = 0;
+        let loadedImages = 0;
+        let failedImages = 0;
+        const console = document.getElementById('console');
+
+        function log(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.className = `console-entry ${type}`;
+            entry.textContent = message;
+            console.appendChild(entry);
+            console.scrollTop = console.scrollHeight;
+        }
+
+        function testImage(imageData, containerId) {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = 'image-test';
+            
+            const img = document.createElement('img');
+            const status = document.createElement('div');
+            status.className = 'status';
+            
+            totalImages++;
+            
+            img.onload = function() {
+                img.classList.add('loaded');
+                status.textContent = '✅ Loaded';
+                status.className = 'status success';
+                loadedImages++;
+                log(`✅ Loaded: ${imageData.src} (${imageData.type})`, 'success');
+                updateSummary();
+            };
+            
+            img.onerror = function() {
+                img.classList.add('failed');
+                status.textContent = '❌ Failed';
+                status.className = 'status error';
+                failedImages++;
+                log(`❌ Failed to load: ${imageData.src} (${imageData.type})`, 'error');
+                updateSummary();
+            };
+            
+            img.src = imageData.src;
+            img.alt = imageData.alt;
+            
+            div.appendChild(img);
+            div.appendChild(status);
+            container.appendChild(div);
+        }
+
+        function updateSummary() {
+            const summary = document.getElementById('summary-content');
+            const successRate = totalImages > 0 ? Math.round((loadedImages / totalImages) * 100) : 0;
+            
+            summary.innerHTML = `
+                <p><strong>Total Images Tested:</strong> ${totalImages}</p>
+                <p><strong>Successfully Loaded:</strong> <span style="color: #4CAF50;">${loadedImages}</span></p>
+                <p><strong>Failed to Load:</strong> <span style="color: #f44336;">${failedImages}</span></p>
+                <p><strong>Success Rate:</strong> ${successRate}%</p>
+            `;
+        }
+
+        // Run tests
+        function runTests() {
+            log('🖼️ Testing main page images...', 'info');
+            imageTests.main.forEach(img => testImage(img, 'main-images'));
+            
+            setTimeout(() => {
+                log('🎮 Testing project page images...', 'info');
+                imageTests.projects.forEach(img => testImage(img, 'project-images'));
+            }, 1000);
+            
+            setTimeout(() => {
+                log('🎯 Testing icons and favicons...', 'info');
+                imageTests.icons.forEach(img => testImage(img, 'icon-images'));
+            }, 2000);
+            
+            setTimeout(() => {
+                log('✅ All tests completed!', 'info');
+                if (failedImages > 0) {
+                    log(`⚠️ Found ${failedImages} failed images. Check the file paths and ensure images exist in the correct folders.`, 'error');
+                } else {
+                    log('🎉 All images loaded successfully!', 'success');
+                }
+            }, 3000);
+        }
+
+        // Start tests when page loads
+        window.addEventListener('load', runTests);
+    </script>
+</body>
+</html>
