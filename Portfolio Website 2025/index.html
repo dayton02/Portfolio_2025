@@ -4,21 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dayton Ng - Game Developer, Software Engineer, and Creative Technologist. Explore my portfolio of games, 3D models, and digital art.">
-    <meta name="keywords" content="game developer, software engineer, 3D artist, portfolio, Unity, C++, Blender">
-    <meta name="author" content="Dayton Ng">
-    <meta property="og:title" content="Dayton's Portfolio">
-    <meta property="og:description" content="Game Developer, Software Engineer, and Creative Technologist">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://daytonng.com">
-    <meta property="og:image" content="images/profile.jpg">
-    <title>Dayton Ng | Game Developer & Creative Technologist</title>
-    
-    <!-- Enhanced Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <title>Dayton's Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css"
         rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css">
@@ -27,31 +14,16 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="images/site.webmanifest">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="images/profile.jpg" as="image">
-    <link rel="preload" href="css/styles.css" as="style">
-    
     <!-- Load in order -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-cpp.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
-    <script src="js/performance.js" defer></script>
-    <script src="js/script.js" defer></script>
-    <script src="js/code-display.js" defer></script>
-    <script src="js/hero-animation.js" defer></script>
-    <script src="js/scroll-animations.js" defer></script>
-    <script src="js/lazy-loading.js" defer></script>
-    <script src="js/theme-manager.js" defer></script>
-    <script src="js/authentic-blog-skills.js" defer></script>
-</head>
+    <script src="js/script.js"></script>
+    <script src="js/code-display.js"></script>
+    <script src="js/hero-animation.js"></script>
 
 <body>
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-progress"></div>
-    <div class="scroll-percent">0%</div>
-    
     <!-- Loading Screen -->
     <div id="loading-screen">
         <div class="loader-content">
@@ -81,11 +53,11 @@
                 <span class="logo-separator">|</span>
                 <span class="logo-initials">N</span>
             </a>
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+            <div class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button>
+            </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
@@ -97,11 +69,6 @@
     <!-- Hero Section -->
     <section id="hero">
         <div class="hero-container">
-            <!-- Floating background elements -->
-            <div class="float-item" style="top: 20%; left: 10%; width: 60px; height: 60px; background: rgba(132, 94, 247, 0.1); border-radius: 50%; filter: blur(2px);"></div>
-            <div class="float-item" style="top: 60%; left: 80%; width: 40px; height: 40px; background: rgba(177, 151, 252, 0.1); border-radius: 50%; filter: blur(1px);"></div>
-            <div class="float-item" style="top: 80%; left: 20%; width: 80px; height: 80px; background: rgba(151, 117, 250, 0.08); border-radius: 50%; filter: blur(3px);"></div>
-            <div class="float-item" style="top: 30%; left: 70%; width: 50px; height: 50px; background: rgba(132, 94, 247, 0.06); border-radius: 50%; filter: blur(2px);"></div>
             <div class="hero-left">
                 <div class="glitch-container">
                     <h1 class="glitch" data-text="Hello!">Hello!</h1>
@@ -116,10 +83,10 @@
                     </div>
                 </div>
                 <div class="hero-tags">
-                    <span class="tag animate-in"><i class="fas fa-gamepad"></i> Game Developer</span>
-                    <span class="tag animate-in"><i class="fas fa-code"></i> Software Engineer</span>
-                    <span class="tag animate-in"><i class="fas fa-bullseye"></i> Archer</span>
-                    <span class="tag animate-in"><i class="fas fa-person-swimming"></i> Diver</span>
+                    <span class="tag"><i class="fas fa-gamepad"></i> Game Lover</span>
+                    <span class="tag"><i class="fas fa-code"></i> Developer</span>
+                    <span class="tag"><i class="fas fa-bullseye"></i> Archer</span>
+                    <span class="tag"><i class="fas fa-person-swimming"></i> Diver</span>
                 </div>
                 <div class="cta-container">
                     <a href="#about" class="cta-button primary">
@@ -162,10 +129,7 @@
     <section id="about">
         <div class="about-container">
             <div class="about-image">
-                <img data-lazy="images/profile.jpg" alt="Dayton Ng" class="lazy-image">
-                <div class="image-loading-placeholder">
-                    <div class="loading-spinner"></div>
-                </div>
+                <img src="images/profile.jpg" alt="Dayton Ng">
             </div>
             <div class="about-content">
                 <h2>Developer, Designer,<br>Gamer, Adventurer</h2>
@@ -228,24 +192,17 @@
             <h2>Get In Touch</h2>
             <p class="contact-intro">Reach out to me!</p>
 
-            <form id="contact-form" action="https://formsubmit.co/daytonng02@gmail.com" method="POST">
+            <form action="https://formsubmit.co/daytonng02@gmail.com" method="POST">
                 <div class="form-group">
-                    <input type="text" id="name" name="name" class="form-input" required>
-                    <label for="name" class="form-label">Your Name</label>
-                    <span class="error-message"></span>
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="email" name="email" class="form-input" required>
-                    <label for="email" class="form-label">Your Email</label>
-                    <span class="error-message"></span>
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <textarea id="message" name="message" class="form-input" rows="5" required></textarea>
-                    <label for="message" class="form-label">Your Message</label>
-                    <span class="error-message"></span>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
-                <div class="form-status"></div>
             </form>
 
             <div class="social-links">
@@ -261,8 +218,6 @@
             </div>
         </div>
     </section>
-
-    <script src="js/form-validation.js"></script>
 </body>
 
 </html>
