@@ -25,6 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const noteEl = document.querySelector('.availability-note');
         const cur = statusEl.getAttribute('data-status') || 'open';
         statusEl.textContent = cur === 'open' ? 'Open' : 'Busy';
-        if (noteEl) noteEl.textContent = cur === 'open' ? 'Actively interviewing' : 'Currently unavailable';
+        if (noteEl) noteEl.textContent = cur === 'open' ? 'Open for interview' : 'Currently unavailable';
     }
 });
