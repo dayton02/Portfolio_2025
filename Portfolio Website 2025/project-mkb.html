@@ -13,6 +13,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="images/site.webmanifest">
     <script src="js/script.js"></script>
+    <script src="js/project-details.js"></script>
 
 </head>
 
@@ -118,41 +119,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const modal = document.getElementById('videoModal');
-        const video = document.getElementById('gameplayVideo');
-        const closeBtn = document.querySelector('.close-modal');
-
-        function playVideo(event) {
-            event.preventDefault();
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            video.play();
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            video.pause();
-        }
-
-        closeBtn.addEventListener('click', closeModal);
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                closeModal();
-            }
-        });
-    </script>
 </body>
 
 </html>

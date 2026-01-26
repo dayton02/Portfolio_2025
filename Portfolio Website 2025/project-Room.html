@@ -13,6 +13,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="images/site.webmanifest">
     <script src="js/script.js"></script>
+    <script src="js/project-details.js"></script>
 
 </head>
 
@@ -114,8 +115,8 @@
     <div class="screenshots-modal" id="screenshotsModal">
         <div class="modal-container">
             <div class="modal-header">
-                <h3>Lead Astray - Screenshots</h3>
-                <button class="close-modal">&times;</button>
+              <h3>Room - Screenshots</h3>
+              <button class="close-modal">&times;</button>
             </div>
             <div class="modal-content">
                 <div class="gallery-container">
@@ -130,108 +131,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const modal = document.getElementById('videoModal');
-        const video = document.getElementById('gameplayVideo');
-        const closeBtn = document.querySelector('.close-modal');
-
-        function playVideo(event) {
-            event.preventDefault();
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            video.play();
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            video.pause();
-        }
-
-        closeBtn.addEventListener('click', closeModal);
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                closeModal();
-            }
-        });
-
-        // Screenshots Gallery
-        const screenshotsModal = document.getElementById('screenshotsModal');
-        const gallerySlides = document.querySelector('.gallery-slides');
-        const prevBtn = document.querySelector('.gallery-nav.prev');
-        const nextBtn = document.querySelector('.gallery-nav.next');
-        let currentIndex = 0;
-
-        function showScreenshots(event) {
-            event.preventDefault();
-            screenshotsModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            currentIndex = 0;
-            updateGallery();
-        }
-
-        function updateGallery() {
-            const offset = -currentIndex * 100;
-            gallerySlides.style.transform = `translateX(${offset}%)`;
-
-            // Update navigation button states
-            prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
-            nextBtn.style.opacity = currentIndex === gallerySlides.children.length - 1 ? '0.5' : '1';
-        }
-
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateGallery();
-            }
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < gallerySlides.children.length - 1) {
-                currentIndex++;
-                updateGallery();
-            }
-        });
-
-        // Add keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (screenshotsModal.classList.contains('active')) {
-                if (e.key === 'ArrowLeft' && currentIndex > 0) {
-                    currentIndex--;
-                    updateGallery();
-                } else if (e.key === 'ArrowRight' && currentIndex < gallerySlides.children.length - 1) {
-                    currentIndex++;
-                    updateGallery();
-                } else if (e.key === 'Escape') {
-                    screenshotsModal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            }
-        });
-
-        // Close screenshots modal
-        screenshotsModal.querySelector('.close-modal').addEventListener('click', () => {
-            screenshotsModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === screenshotsModal) {
-                screenshotsModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
-    </script>
 </body>
 
 </html>
