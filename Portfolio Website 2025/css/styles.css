@@ -7,16 +7,20 @@
     --background-light: #2E2640;
     --text-light: #ffffff;
     --text-muted: rgba(255, 255, 255, 0.7);
+    --font-code: 'Fira Code', monospace;
+    --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+    --font-heading: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     padding-top: 60px;
     background-color: var(--background-dark, #13111C);
     color: var(--text-light, #ffffff);
+    font-family: var(--font-body);
+    font-weight: 400;
 }
 
 /* Loading Screen */
@@ -62,7 +66,7 @@ body {
 
 .loading-text {
     color: #B197FC;
-    font-family: 'Fira Code', monospace;
+    font-family: var(--font-code);
     margin-bottom: 1rem;
     position: relative;
     display: inline-block;
@@ -99,7 +103,7 @@ body {
 .loading-status {
     color: #9775fa;
     font-size: 0.8rem;
-    font-family: 'Fira Code', monospace;
+    font-family: var(--font-code);
     opacity: 0.8;
     margin-top: 1rem;
     text-align: left;
@@ -441,25 +445,7 @@ nav:hover {
 }
 
 .tag {
-    background: rgba(132, 94, 247, 0.1);
-    color: #B197FC;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
     position: relative;
-    border: 1px solid transparent;
-    background-image: linear-gradient(rgba(19, 17, 28, 0.95), rgba(19, 17, 28, 0.95)),
-        linear-gradient(120deg, #B197FC, #845EF7);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-}
-
-.tag:hover {
-    background: rgba(132, 94, 247, 0.2);
-    transform: translateY(-2px);
 }
 
 .tag[data-animation="float"] {
@@ -732,12 +718,12 @@ nav:hover {
 .terminal-title {
     color: #B197FC;
     margin-left: 1rem;
-    font-family: 'Fira Code', monospace;
+    font-family: var(--font-code);
 }
 
 .terminal-content {
     padding: 1.5rem;
-    font-family: 'Fira Code', monospace;
+    font-family: var(--font-code);
 }
 
 .line {
@@ -884,7 +870,7 @@ nav:hover {
     padding: 0.5rem 1rem;
     border-radius: 4px;
     font-size: 0.9rem;
-    font-family: 'Fira Code', monospace;
+    font-family: var(--font-code);
 }
 
 .project-links {
@@ -1222,7 +1208,7 @@ textarea:focus {
 }
 
 .project-tech span:hover {
-    background: rgba(132, 94, 247, 0.2);
+    background: rgba(177, 151, 252, 0.2);
     transform: translateY(-2px);
 }
 
@@ -1416,7 +1402,7 @@ textarea:focus {
 .skill-name {
     color: #D0BFFF;
     font-size: 0.9rem;
-    font-family: 'Fira Code', monospace;
+    font-family: var(--font-code);
 }
 
 /* Screenshot modal */
@@ -1975,4 +1961,106 @@ body {
     100% {
         transform: translateX(100%);
     }
+}
+
+/* Base tag style - shared across all tag types */
+.tag,
+.project-tech span,
+.project-card-tech span,
+.skill-item {
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(46, 38, 64, 0.6);
+    border: 1px solid rgba(177, 151, 252, 0.3);
+    color: #B197FC;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Hover effects for all tags */
+.tag:hover,
+.project-tech span:hover,
+.project-card-tech span:hover,
+.skill-item:hover {
+    background: rgba(177, 151, 252, 0.2);
+    border-color: #B197FC;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(132, 94, 247, 0.2);
+}
+
+/* Hero section tags - keep special animations */
+.hero-tags .tag {
+    background-image: linear-gradient(rgba(19, 17, 28, 0.95), rgba(19, 17, 28, 0.95)),
+        linear-gradient(120deg, #B197FC, #845EF7);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+/* Skill items - keep icon styling */
+.skill-item .skill-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover .skill-icon {
+    transform: scale(1.15);
+}
+
+/* ========================================
+   STANDARDIZED TYPOGRAPHY
+   ======================================== */
+
+/* Headings - Modern sans-serif */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+/* Readable content - Clean sans-serif */
+p, li, .about-content p, .project-description,
+.contact-intro, .project-info-detailed p,
+.project-info-detailed ul, .availability-note,
+.availability-line span {
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Code/Technical elements - Monospace */
+.terminal-content,
+.loading-text,
+.loading-status,
+.terminal-title,
+.prompt,
+.command,
+.tag,
+.project-tech span,
+.project-card-tech span,
+.skill-name,
+.logo,
+.image-caption {
+    font-family: var(--font-code);
+}
+
+/* UI Elements - Monospace for developer aesthetic */
+button,
+.cta-button,
+.nav-links a,
+.project-link,
+.back-button,
+.availability-status,
+.submit-btn {
+    font-family: var(--font-code);
+    font-weight: 500;
+}
+
+/* Project/skill labels - Monospace */
+.project-label,
+.skill-item {
+    font-family: var(--font-code);
 }
