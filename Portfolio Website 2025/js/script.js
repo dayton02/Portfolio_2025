@@ -49,14 +49,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-window.addEventListener('load', function () {
+// Loading Screen Animation with Status Messages
+window.addEventListener('DOMContentLoaded', () => {
     const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
+    const loadingStatus = document.querySelector('.loading-status');
+    
+    // Check if loading elements exist
+    if (!loadingScreen || !loadingStatus) return;
+    
+    const statusMessages = [
+        'Status: Initializing systems...',
+        'Status: Loading assets...',
+        'Status: Compiling shaders...',
+        'Status: Building world...',
+        'Status: Ready!'
+    ];
+    
+    let currentIndex = 0;
+    const statusInterval = setInterval(() => {
+        if (currentIndex < statusMessages.length) {
+            loadingStatus.textContent = statusMessages[currentIndex];
+            currentIndex++;
+        } else {
+            clearInterval(statusInterval);
+        }
+    }, 400); // Change message every 400ms
+
+    // Hide loading screen after all messages complete
+    // Total time: 5 messages × 400ms = 2000ms + 300ms delay
+    setTimeout(() => {
+        loadingScreen.style.opacity = '0';
         setTimeout(() => {
-            loadingScreen.style.opacity = '0';
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 500);
-        }, 1500); // Timer to show
-    }
+            loadingScreen.style.display = 'none';
+        }, 500); // Fade out duration
+    }, 2300); // Slightly longer to show "Ready!" message
 });
