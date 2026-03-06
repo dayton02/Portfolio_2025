@@ -1502,26 +1502,21 @@ textarea:focus {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(177, 151, 252, 0.15);
-    border: 2px solid rgba(177, 151, 252, 0.3);
+    background: rgba(177, 151, 252, 0.2);
+    border: 2px solid #B197FC;
     color: #B197FC;
-    font-size: 28px;
     width: 50px;
     height: 50px;
-    cursor: pointer;
     border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
+    z-index: 10;
 }
 
 .nav-arrow:hover {
-    background: rgba(177, 151, 252, 0.25);
-    border-color: #B197FC;
+    background: rgba(177, 151, 252, 0.4);
     transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 0 15px rgba(177, 151, 252, 0.3);
 }
 
 .prev-arrow {
@@ -1566,6 +1561,7 @@ textarea:focus {
     padding: 10px 0;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
+    margin-top: 20px;
 }
 
 .thumbnail-container {
@@ -1575,6 +1571,7 @@ textarea:focus {
     padding: 10px;
     overflow-x: auto;
     align-items: center;
+    scroll-behavior: smooth;
 }
 
 .thumbnail-container::-webkit-scrollbar {
@@ -1599,6 +1596,7 @@ textarea:focus {
     overflow: hidden;
     border: 2px solid transparent;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .thumbnail.active {
@@ -1608,26 +1606,13 @@ textarea:focus {
 
 .thumbnail:hover {
     transform: translateY(-5px);
+    border-color: rgba(177, 151, 252, 0.5);
 }
 
 .thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.gallery-slides {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease;
-}
-
-.gallery-slides img {
-    min-width: 100%;
-    height: 100%;
-    flex: 0 0 100%;
-    object-fit: contain;
 }
 
 /* Art Gallery Modal */

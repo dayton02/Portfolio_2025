@@ -33,60 +33,114 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Screenshots Gallery Logic
+    // Screenshots Gallery Logic 
     const screenshotsModal = document.getElementById('screenshotsModal');
     if (screenshotsModal) {
-        const gallerySlides = document.querySelector('.gallery-slides');
-        const prevBtn = document.querySelector('.gallery-nav.prev');
-        const nextBtn = document.querySelector('.gallery-nav.next');
         const closeBtn = screenshotsModal.querySelector('.close-modal');
         let currentIndex = 0;
+        let screenshots = [];
 
         window.showScreenshots = function(event) {
             if (event) event.preventDefault();
             screenshotsModal.classList.add('active');
             document.body.style.overflow = 'hidden';
             currentIndex = 0;
-            updateGallery();
+            initializeGallery();
         };
 
-        function updateGallery() {
-            if (!gallerySlides) return;
-            const offset = -currentIndex * 100;
-            gallerySlides.style.transform = `translateX(${offset}%)`;
+        function initializeGallery() {
+            // Read screenshots from existing HTML structure
+            const gallerySlides = screenshotsModal.querySelector('.gallery-slides');
+            
+            if (gallerySlides) {
+                // Extract screenshots from the existing img tags
+                const existingImages = gallerySlides.querySelectorAll('img');
+                screenshots = Array.from(existingImages).map(img => ({
+                    src: img.src,
+                    alt: img.alt || 'Screenshot'
+                }));
 
-            // Update navigation button states
-            if (prevBtn) prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
-            if (nextBtn) nextBtn.style.opacity = currentIndex === gallerySlides.children.length - 1 ? '0.5' : '1';
+                // Transform the gallery into thumbnail-based system
+                setupThumbnailGallery(gallerySlides);
+            } else {
+                console.warn('No gallery-slides found in screenshots modal');
+            }
         }
 
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateGallery();
-                }
+        function setupThumbnailGallery(gallerySlides) {
+            // Get or create the gallery container
+            let galleryContainer = screenshotsModal.querySelector('.gallery-container');
+            
+            // Clear and rebuild the structure
+            galleryContainer.innerHTML = `
+                <div class="main-image-container">
+                    <button class="nav-arrow prev-arrow">&lt;</button>
+                    <img id="mainScreenshot" src="${screenshots[0].src}" alt="${screenshots[0].alt}">
+                    <button class="nav-arrow next-arrow">&gt;</button>
+                </div>
+                <div class="thumbnail-strip">
+                    <div class="thumbnail-container" id="screenshotThumbnails">
+                        <!-- Thumbnails will be generated here -->
+                    </div>
+                </div>
+            `;
+
+            const mainImage = galleryContainer.querySelector('#mainScreenshot');
+            const thumbnailContainer = galleryContainer.querySelector('#screenshotThumbnails');
+            const prevArrow = galleryContainer.querySelector('.prev-arrow');
+            const nextArrow = galleryContainer.querySelector('.next-arrow');
+
+            // Create thumbnails
+            screenshots.forEach((screenshot, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = 'thumbnail';
+                if (index === 0) thumbnail.classList.add('active');
+                
+                thumbnail.innerHTML = `<img src="${screenshot.src}" alt="${screenshot.alt}">`;
+                thumbnail.addEventListener('click', () => updateImage(index));
+                thumbnailContainer.appendChild(thumbnail);
             });
+
+            function updateImage(index) {
+                currentIndex = index;
+                mainImage.src = screenshots[index].src;
+                mainImage.alt = screenshots[index].alt;
+
+                // Update thumbnail active state
+                thumbnailContainer.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+                    thumb.classList.toggle('active', i === index);
+                    if (i === index) {
+                        thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
+                });
+            }
+
+            // Navigation handlers
+            if (prevArrow) {
+                prevArrow.onclick = () => {
+                    const newIndex = (currentIndex - 1 + screenshots.length) % screenshots.length;
+                    updateImage(newIndex);
+                };
+            }
+
+            if (nextArrow) {
+                nextArrow.onclick = () => {
+                    const newIndex = (currentIndex + 1) % screenshots.length;
+                    updateImage(newIndex);
+                };
+            }
+
+            // Initialize first image
+            updateImage(0);
         }
 
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                if (gallerySlides && currentIndex < gallerySlides.children.length - 1) {
-                    currentIndex++;
-                    updateGallery();
-                }
-            });
-        }
-
-        // Keyboard navigation for gallery
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (screenshotsModal.classList.contains('active')) {
-                if (e.key === 'ArrowLeft' && currentIndex > 0) {
-                    currentIndex--;
-                    updateGallery();
-                } else if (e.key === 'ArrowRight' && gallerySlides && currentIndex < gallerySlides.children.length - 1) {
-                    currentIndex++;
-                    updateGallery();
+                if (e.key === 'ArrowLeft') {
+                    screenshotsModal.querySelector('.prev-arrow')?.click();
+                } else if (e.key === 'ArrowRight') {
+                    screenshotsModal.querySelector('.next-arrow')?.click();
                 } else if (e.key === 'Escape') {
                     screenshotsModal.classList.remove('active');
                     document.body.style.overflow = 'auto';
