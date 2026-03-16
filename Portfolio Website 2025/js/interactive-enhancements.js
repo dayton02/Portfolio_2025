@@ -11,12 +11,11 @@ class PortfolioInteractivity {
         this.setupScrollEffects();
         this.setupClickEffects();
         this.setupTagInteractions();
-        this.setupFocusMode();
         this.setupCursorFollower();
         
         // Show welcome message
         setTimeout(() => {
-            this.showTooltip('Small Interactive Mode', 'Scroll to see reveals or hold SHIFT');
+            this.showTooltip('Portfolio loaded', 'Go ahead and browse!');
         }, 1000);
     }
 
@@ -128,26 +127,6 @@ class PortfolioInteractivity {
             const text = tag.textContent.toLowerCase();
             if (text.includes('game') || text.includes('developer')) {
                 tag.setAttribute('data-interactive', 'game-dev');
-            }
-        });
-    }
-
-    // Hold Shift for "Focus Mode" (game dev feature)
-    setupFocusMode() {
-        let isShiftHeld = false;
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Shift' && !isShiftHeld) {
-                isShiftHeld = true;
-                document.body.classList.add('focus-mode');
-                this.showTooltip('Focus Mode', 'Enhanced visibility activated');
-            }
-        });
-
-        document.addEventListener('keyup', (e) => {
-            if (e.key === 'Shift') {
-                isShiftHeld = false;
-                document.body.classList.remove('focus-mode');
             }
         });
     }
