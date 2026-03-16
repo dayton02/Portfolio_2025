@@ -2049,3 +2049,89 @@ button,
 .skill-item {
     font-family: var(--font-code);
 }
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .nav-container { padding: 0 2rem; }
+    .hero-container { padding: 3rem 1.5rem; gap: 2rem; }
+    .hero-left { max-width: 500px; padding: 1rem; }
+    .hero-right { max-width: 400px; }
+    
+    .featured-project { flex-direction: column; gap: 2rem; }
+    .project-image { max-width: 100%; }
+
+    #about { padding: 4rem 2rem; }
+    #projects-featured { padding: 3rem 2rem; }
+    #contact { padding: 3rem 2rem; }
+}
+
+@media (max-width: 768px) {
+    body { padding-top: 50px; }
+    
+    .nav-container { padding: 0 1.5rem; }
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: rgba(19, 17, 28, 0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: left 0.3s ease-in-out;
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .hamburger { display: flex; cursor: pointer; }
+    
+    .hero-container { flex-direction: column; text-align: center; }
+    
+    .hero-tags { justify-content: center; }
+    
+    .role-container { display: flex; justify-content: center; align-items: center; }
+    
+    .cta-container { justify-content: center; }
+    
+    .projects-grid, .skills-grid, .gallery-grid { grid-template-columns: 1fr; }
+    
+    .about-content, .contact-content { flex-direction: column; text-align: center; }
+    
+    .profile-image-container::before, .profile-image-container::after { display: none; }
+    
+    .project-header, .header-content { flex-direction: column; gap: 2rem; text-align: center; }
+
+    .header-info h1 { font-size: 2.5rem; }
+    .header-info .project-tech { justify-content: center; }
+    .header-actions { flex-direction: column; width: 100%; }
+    .header-actions .project-link { text-align: center; width: 100%; }
+    
+    .social-links { justify-content: center; }
+    
+    #about { padding: 3rem 1.5rem; }
+    #projects-featured { padding: 2rem 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .name-highlight { font-size: 2.5rem; }
+    
+    .hero-container { padding: 2rem 1rem; }
+    
+    .projects-container h2 { font-size: 2rem; }
+    
+    .cta-container { flex-direction: column; width: 100%; }
+    .cta-button { width: 100%; justify-content: center; }
+    
+    .project-links { flex-direction: column; }
+    .project-link { text-align: center; }
+
+    .nav-links a { font-size: 1.2rem; }
+}
