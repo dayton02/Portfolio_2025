@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeadAstray - Project Details</title>
+    <title>Custom Engine - Project Details</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -49,32 +49,35 @@
             <a href="projects.html" class="back-button">
                 <i class="fas fa-arrow-left"></i> Back to Projects
             </a>
-            <h1>Lead Astray</h1>
+            <h1>Custom Engine</h1>
             <div class="project-showcase">
-                <img src="images/leadAstray_Poster.png" alt="leadAstray">
+                <img src="images/customEngine/customEngine.png" alt="Custom Engine">
                 <div class="project-info-detailed">
                     <div class="project-tech">
-                        <span>C#</span>
-                        <span>Unity</span>
-                        <span>Dialogue System</span>
-                        <span>Levels</span>
+                        <span>C++</span>
+                        <span>OpenGL</span>
                     </div>
-                    <p>Grey, a detective cat. Upon knowing that a cat went missing, he venture out to find the reason
-                        behind it. Only to find more issues that other community cats are facing. Grey was lead by
-                        someone mysterious, he thinks that is the only way to find the missing cat. What is the reason
-                        behind all these? Play it to know.</p>
+                    <p>Making a game engine closely to how Unity and Unreal Engine works so that the our game designer can use the custom engine to create the 2D game "Ooze Escape"</p>
                     <div class="project-credits">
                         <h3>Team & Credits</h3>
                         <ul>
-                            <li><strong>Team Name:</strong> TeamTim (Year 3 FYE)</li>
-                            <li><strong>Team Size:</strong> 4 members</li>
-                            <li><strong>Duration:</strong> 6 months</li>
-                            <li><strong>Team Members:</strong>
+                            <li><strong>Team Name:</strong> THEPROTEINS</li>
+                            <li><strong>Team Size:</strong> 8</li>
+                            <li><strong>Duration:</strong> 2 trimesters</li>
+                            <li>
+                                <strong>Team Members:</strong>
                                 <ul>
-                                    <li>Ee Tang - Tech Lead | Programmer</li>
-                                    <li>Dayton Ng - Level Designer | Programmer</li>
-                                    <li>Leren - Sound Designer | Programmer</li>
-                                    <li>Timna - Art Director | Programmer</li>
+                                    <strong>Technical Programmer:</strong>
+                                    <li>Yap Zhi Kai - Product Manager</li>
+                                    <li>Tan Wei Jun - Technical Lead</li>
+                                    <li>Dayton Ng - Designer | Programmer</li>
+                                    <li>Jarrel Tay - Designer | Programmer</li>
+                                    <li>Ethan Siow - Programmer</li>
+                                    <li>Ong Wei Song - Programmer</li>
+
+                                    <strong>Game Designer:</strong>
+                                    <li>Poh Jin Hao - Art Lead | Unity demo</li>
+                                    <li>Ooi Ming Thong - Design Lead | Unity demo</li>
                                 </ul>
                             </li>
                         </ul>
@@ -83,63 +86,39 @@
                     <div class="project-role">
                         <h3>My Role</h3>
                         <ul>
-                            <li>UI and game mechanics programmer</li>
+                            <li>TBD</li>
                         </ul>
                     </div>
 
                     <div class="project-responsibilities">
                         <h3>Key Responsibilities</h3>
                         <ul>
-                            <li>Implenting the UI</li>
-                            <li>Craft out level design</li>
-                            <li>Implenting core gameplay mechanics</li>
+                            <li>TBD</li>
                         </ul>
                     </div>
 
                     <div class="project-links">
-                        <a href="https://drive.google.com/file/d/1K0vWX9H_SHVrB6Je_SXLjFZh6rmdp9Cl/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-play"></i> Play Demo</a>
-                        <a href="#" class="project-link" onclick="playVideo(event)"><i class=" fab fa-youtube"></i>
-                            Video
-                            Showcase</a>
-                        <a href="#" class="project-link" onclick="showScreenshots(event)"><i class="fas fa-images"></i>
-                            Screenshots</a>
+                        <a href="#" class="project-link disabled"><i class="fas fa-play"></i> Play Demo</a>
+                        <a href="#" class="project-link disabled" onclick="playVideo(event)"><i class=" fab fa-youtube"></i> Video Showcase</a>
+                        <a href="#" class="project-link disabled"><i class="fas fa-images"></i> Screenshots</a>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Video Modal -->
     <div class="video-modal" id="videoModal">
         <div class="modal-container">
             <div class="modal-header">
-                <h3>Lead Astray - Gameplay Demo</h3>
+                <h3>Custom Engine - Gameplay Demo</h3>
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-content">
                 <video id="gameplayVideo" controls>
-                    <source src="videos/leadAstray-demo.mp4" type="video/mp4">
+                    <source src="videos/demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-            </div>
-        </div>
-    </div>
-
-    <!-- Screenshots Modal -->
-    <div class="screenshots-modal" id="screenshotsModal">
-        <div class="modal-container">
-            <div class="modal-header">
-                <h3>Lead Astray - Screenshots</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-content">
-                <div class="gallery-container">
-                    <div class="gallery-slides">
-                        <img src="images/leadAstray/leadAstray_1.png" alt="Lead Astray Screenshot 1">
-                        <img src="images/leadAstray/leadAstray_2.png" alt="Lead Astray Screenshot 2">
-                        <img src="images/leadAstray/leadAstray_3.png" alt="Lead Astray Screenshot 3">
-                        <img src="images/leadAstray/leadAstray_4.png" alt="Lead Astray Screenshot 4">
-                    </div>
-                </div>
             </div>
         </div>
     </div>
