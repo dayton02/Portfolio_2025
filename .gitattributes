@@ -1,1 +1,2 @@
-Portfolio Website 2025/videos/*.mp4 filter=lfs diff=lfs merge=lfs -text
+"Portfolio Website 2025/videos/oozeEscape-demo.mp4" filter=lfs diff=lfs merge=lfs -text
+"Portfolio Website 2025/videos/key_responsibility.mp4" filter=lfs diff=lfs merge=lfs -text
