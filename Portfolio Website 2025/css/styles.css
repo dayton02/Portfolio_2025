@@ -254,6 +254,7 @@ nav:hover {
         radial-gradient(circle at 50% 50%, rgba(132, 94, 247, 0.05) 0%, transparent 70%),
         rgba(19, 17, 28, 0.95);
     min-height: max(600px, 80vh);
+    min-height: max(600px, 80dvh);
     position: relative;
     overflow: hidden;
 }
@@ -1131,6 +1132,7 @@ textarea:focus {
     padding: 6rem 8rem;
     background-color: #13111C;
     min-height: 100vh;
+    min-height: 100dvh;
 }
 
 .project-details-container {
@@ -1357,6 +1359,7 @@ textarea:focus {
 #skills-page {
     padding: 4rem 2rem;
     min-height: 100vh;
+    min-height: 100dvh;
     background-color: #13111C;
 }
 
@@ -1377,7 +1380,7 @@ textarea:focus {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
 
@@ -2095,6 +2098,9 @@ button,
     #about { padding: 4rem 2rem; }
     #projects-featured { padding: 3rem 2rem; }
     #contact { padding: 3rem 2rem; }
+
+    .skills-grid { gap: 1.5rem; }
+    .skills-container, .projects-grid-container { padding: 0 1.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -2107,6 +2113,7 @@ button,
         left: -100%;
         width: 100%;
         height: calc(100vh - 60px);
+        height: calc(100dvh - 60px);
         background: rgba(19, 17, 28, 0.98);
         flex-direction: column;
         align-items: center;

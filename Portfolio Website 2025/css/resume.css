@@ -1,6 +1,7 @@
 /* Resume Hero Section */
 #resume-hero {
     min-height: 40vh;
+    min-height: 40dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,6 +160,16 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    #resume-hero { padding: 3rem 1.5rem; }
+    #experience-timeline { padding: 3rem 1.5rem; }
+    #achievements { padding: 3rem 1.5rem; }
+
+    .resume-title h1 { font-size: 3.5rem; }
+    .timeline-node { margin: 1.5rem 0; }
+    .experience-card { padding: 1.75rem; }
+}
+
 @media (max-width: 768px) {
     .resume-title h1 {
         font-size: 3rem;
