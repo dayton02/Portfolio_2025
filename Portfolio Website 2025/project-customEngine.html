@@ -106,6 +106,41 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Case Study -->
+            <div class="project-case-study">
+                <div class="case-study-block">
+                    <h2><i class="fas fa-flag-checkered"></i> The Challenge</h2>
+                    <p>The goal was a general-purpose 2D engine, a small-scale Unity or Unreal, that our designers
+                        could use to build a full game (Ooze Escape) without touching engine code. That meant the
+                        engine had to be genuinely usable, not just functional: designers needed to build scenes,
+                        iterate quickly, and never lose work to a mistake.</p>
+                </div>
+
+                <div class="case-study-block">
+                    <h2><i class="fas fa-cube"></i> What I Built</h2>
+                    <p>I focused on the quality-of-life and runtime systems that make an engine pleasant to build
+                        in:</p>
+                    <ul>
+                        <li><strong>Scene management</strong> &mdash; switching between levels, plus creating,
+                            deleting, and loading scenes directly through scripting.</li>
+                        <li><strong>Save / load</strong> &mdash; persisting scene and entity state to JSON so work
+                            could be saved and restored reliably.</li>
+                        <li><strong>Undo / redo</strong> &mdash; so designers could experiment freely without fear
+                            of breaking their work.</li>
+                        <li><strong>Physics &amp; collision detection</strong> &mdash; the simulation layer the
+                            games are built on.</li>
+                        <li><strong>Message system</strong> &mdash; decoupled communication between engine systems.</li>
+                    </ul>
+                </div>
+
+                <div class="case-study-block">
+                    <h2><i class="fas fa-rocket"></i> Impact</h2>
+                    <p>The engine shipped as the foundation for Ooze Escape, built entirely by our designers using
+                        the tooling and systems I helped create, proving the engine worked as a real,
+                        designer-facing development environment.</p>
+                </div>
+            </div>
         </div>
     </section>
 

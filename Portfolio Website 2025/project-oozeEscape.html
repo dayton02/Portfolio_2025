@@ -101,6 +101,36 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Case Study -->
+            <div class="project-case-study">
+                <div class="case-study-block">
+                    <h2><i class="fas fa-flag-checkered"></i> The Challenge</h2>
+                    <p>Ooze Escape lives or dies on a single mechanic feeling right: Gloo, a soft-body slime,
+                        deforms and squeezes through the environment using its mass and shape. Early in
+                        production, the soft-body was the biggest technical risk on the project. The slime
+                        jittered, vibrated, and flew apart under force, and that instability leaked into other
+                        systems, breaking collisions and the gameplay that depended on it.</p>
+                </div>
+
+                <div class="case-study-block">
+                    <h2><i class="fas fa-cube"></i> What I Built</h2>
+                    <p>As the physics and backend programmer, I owned the soft-body simulation inside our team's
+                        custom C++ engine, alongside collision detection and the JSON-based save/load systems that
+                        persisted level state.</p>
+                </div>
+
+                <div class="case-study-block">
+                    <h2><i class="fas fa-lightbulb"></i> How I Solved It</h2>
+                    <p>Rather than invent a soft-body model from scratch, I studied how Unity handles the same
+                        problem and rebuilt its approach in our engine. I modeled the slime as a set of point
+                        masses held together by spring constraints, mirroring Unity's <strong>SpringJoint2D</strong>:
+                        each point is pulled toward its neighbors so the body keeps its slime shape while still
+                        deforming naturally under force and collision. Tuning the spring stiffness and damping
+                        turned an unstable, exploding blob into the controllable, springy character the entire
+                        game is built around.</p>
+                </div>
+            </div>
         </div>
     </section>
 
