@@ -4,19 +4,37 @@
 class PortfolioInteractivity {
     constructor() {
         this.particles = [];
+
+        // Feature-detect once at construction.
+        // Fine pointer = mouse/trackpad (desktop). Coarse = touch.
+        this.hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+        this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Heavy flourishes (cursor follower, click particles/ripples, auto tooltip)
+        // only make sense with a fine pointer and no reduced-motion preference.
+        this.enableFlourishes = this.hasFinePointer && !this.prefersReducedMotion;
+
         this.init();
     }
 
     init() {
+        // Lightweight scroll reveals run everywhere (they respect reduced-motion in CSS).
         this.setupScrollEffects();
-        this.setupClickEffects();
         this.setupTagInteractions();
-        this.setupCursorFollower();
-        
-        // Show welcome message
-        setTimeout(() => {
-            this.showTooltip('Portfolio loaded', 'Go ahead and browse!');
-        }, 1000);
+
+        if (this.enableFlourishes) {
+            this.setupClickEffects();
+            this.setupCursorFollower();
+
+            // Show welcome message (desktop + motion only)
+            setTimeout(() => {
+                this.showTooltip('Portfolio loaded', 'Go ahead and browse!');
+            }, 1000);
+        } else {
+            // On touch / reduced-motion, mark the body so CSS can drop the
+            // custom cursor and particle styling.
+            document.body.classList.add('no-flourishes');
+        }
     }
 
     // Section reveal animations on scroll
@@ -34,10 +52,12 @@ class PortfolioInteractivity {
                 if (entry.isIntersecting) {
                     // Add reveal animation
                     entry.target.classList.add('reveal-active');
-                    
-                    // Create subtle particle effect at section top
-                    const rect = entry.target.getBoundingClientRect();
-                    this.createScrollParticles(rect.left + rect.width / 2, rect.top);
+
+                    // Subtle particle effect at section top (desktop + motion only)
+                    if (this.enableFlourishes) {
+                        const rect = entry.target.getBoundingClientRect();
+                        this.createScrollParticles(rect.left + rect.width / 2, rect.top);
+                    }
                 }
             });
         }, observerOptions);

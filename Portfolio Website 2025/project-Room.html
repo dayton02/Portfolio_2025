@@ -16,6 +16,9 @@
     <script src="js/script.js"></script>
     <script src="js/project-details.js"></script>
     <script src="js/interactive-enhancements.js"></script>
+    <!-- Interactive 3D model viewer (Google <model-viewer>, loaded as an ES module) -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
+    <script src="js/model-viewer-init.js"></script>
 
 </head>
 
@@ -51,7 +54,22 @@
             </a>
             <h1>Room</h1>
             <div class="project-showcase">
-                <img src="images/Room.png" alt="room">
+                <!-- 3D viewer mount. Real Blender export lives at glb/TheRoom.glb.
+                     Lighting is NOT baked. The scene is lit by model-viewer's
+                     neutral environment; the hologram look comes from the model's
+                     own emissive materials (Hologram, Character "Sync", screens,
+                     PC fan light). Their emissive strength was boosted 8x in the
+                     GLB so the glow reads strongly under agx tone mapping, which
+                     holds the bright emissives without washing out the room.
+                     (The soft bloom halo is an Eevee effect model-viewer can't
+                     reproduce without the model-viewer-effects post-processing
+                     add-on; the emissive surfaces still glow bright.)
+                     If the GLB fails to load, the <img> below stays as the fallback. -->
+                <div class="model-viewer-mount" data-model="glb/TheRoom.glb"
+                     data-tone-mapping="agx" data-exposure="1.5" data-shadow="0.4"
+                     data-alt="Interactive 3D model of the Room">
+                    <img src="images/Room.png" alt="room">
+                </div>
                 <div class="project-info-detailed">
                     <div class="project-tech">
                         <span>Blender</span>
