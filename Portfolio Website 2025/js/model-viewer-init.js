@@ -19,6 +19,14 @@
 (function () {
     'use strict';
 
+    // ----------------------------------------------------------------------
+    // TEMPORARY: show static images instead of the interactive 3D viewers.
+    // While the real .glb models are still being finished, we fall back to the
+    // existing <img> in each mount. Flip this to `true` (or delete this block)
+    // to re-enable the interactive <model-viewer> on all 3D project pages.
+    // ----------------------------------------------------------------------
+    var MODELS_ENABLED = false;
+
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function upgradeMount(mount) {
@@ -115,6 +123,7 @@
     }
 
     function init() {
+        if (!MODELS_ENABLED) return;              // temporary: keep static images
         if (!('customElements' in window)) return; // very old browser: keep images
         var mounts = document.querySelectorAll('[data-model]');
         for (var i = 0; i < mounts.length; i++) {
